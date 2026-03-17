@@ -134,11 +134,11 @@ export default function ProductDetailClient({
       </section>
 
       {/* Product Tabs - Description, Features, Specifications, Reviews */}
-      <section className="py-12">
+      {/* <section className="py-12">
         <div className="container mx-auto px-4">
           <ProductTabs product={product} reviews={reviews} />
         </div>
-      </section>
+      </section> */}
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (

@@ -125,7 +125,7 @@ export default function ProductGrid({ products, viewMode }) {
                   e.stopPropagation();
                   setQuickViewProduct(product);
                 }}
-                className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#C9A227] hover:text-[#111111] transition-colors"
+                className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center shadow-lg hover:bg-[#C9A227] hover:text-[#111111] transition-colors"
               >
                 <Eye className="w-5 h-5" />
               </motion.button>
@@ -134,7 +134,7 @@ export default function ProductGrid({ products, viewMode }) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={(e) => shareProduct(product, e)}
-                className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#C9A227] hover:text-[#111111] transition-colors"
+                className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center shadow-lg hover:bg-[#C9A227] hover:text-[#111111] transition-colors"
               >
                 <Share2 className="w-5 h-5" />
               </motion.button>
@@ -328,7 +328,7 @@ export default function ProductGrid({ products, viewMode }) {
                 onClick={(e) => shareProduct(product, e)}
                 className="w-12 h-12 rounded-xl flex items-center justify-center border-2 border-gray-200 hover:border-[#C9A227] text-gray-500 hover:text-[#C9A227] transition-colors"
               >
-                <Share2 className="w-5 h-5" />
+                <Share2 className="w-5 h-5 text-black" />
               </motion.button>
             </div>
           </div>

@@ -29,10 +29,10 @@ export default function AboutPageClient() {
       <StatsSection />
       <MissionVision />
       <CoreValues />
-      <Timeline />
+      {/* <Timeline /> */}
       <ManufacturingSection />
-      <TeamSection />
-      <CertificationsSection />
+      {/* <TeamSection /> */}
+      {/* <CertificationsSection /> */}
       <WhyChooseUs />
       <TestimonialsSection />
       <CTASection />

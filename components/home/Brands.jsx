@@ -3,12 +3,13 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import logo1 from "@/app/assets/logo1.png"
+import logo2 from "@/app/assets/logo2.png"
+import logo3 from "@/app/assets/logo3.png"
 const brands = [
-  { name: "Yale", logo: "/images/brands/yale.png" },
-  { name: "Godrej", logo: "/images/brands/godrej.png" },
-  { name: "Dorset", logo: "/images/brands/dorset.png" },
-  { name: "Europa", logo: "/images/brands/europa.png" },
+  { name: "Yale", logo: logo1 },
+  { name: "Godrej", logo: logo2 },
+  { name: "Dorset", logo: logo3},
   { name: "Harrison", logo: "/images/brands/harrison.png" },
   { name: "Link", logo: "/images/brands/link.png" },
   { name: "Spider", logo: "/images/brands/spider.png" },

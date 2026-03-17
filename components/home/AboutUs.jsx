@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { Check, Award, Users, Building, Calendar } from "lucide-react";
+import leftImg from "@/public/uploads/categories/1773655352943-Verti-Bolt-G111.png"
 
 const stats = [
   { icon: Calendar, value: "25+", label: "Years Experience" },
@@ -50,7 +51,7 @@ export default function AboutUs() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Images */}
-          <motion.div
+          {/*<motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -59,7 +60,7 @@ export default function AboutUs() {
           >
             <div className="relative">
               {/* Main Image */}
-              <motion.div
+              {/* <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="relative z-10 rounded-3xl overflow-hidden shadow-2xl"
               >
@@ -71,10 +72,10 @@ export default function AboutUs() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/50 to-transparent" />
-              </motion.div>
+              </motion.div> */}
 
               {/* Floating Card */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -85,10 +86,10 @@ export default function AboutUs() {
                   <div className="text-5xl font-bold">25+</div>
                   <div className="text-sm font-semibold mt-1">Years of Excellence</div>
                 </div>
-              </motion.div>
+              </motion.div> */}
 
               {/* Secondary Image */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -101,11 +102,10 @@ export default function AboutUs() {
                   fill
                   className="object-cover"
                 />
-              </motion.div>
-            </div>
-
+              </motion.div> */}
+            {/* </div> */}
             {/* Decorative Elements */}
-            <motion.div
+            {/* <motion.div
               animate={{
                 rotate: 360,
               }}
@@ -115,8 +115,10 @@ export default function AboutUs() {
                 ease: "linear",
               }}
               className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-[#C9A227]/20 rounded-full"
-            />
-          </motion.div>
+            /> */}
+          {/* </motion.div> */}
+
+          <Image src={leftImg} width={100} height={100} alt="left img" className="w-full h-full object-cover"/>
 
           {/* Right - Content */}
           <motion.div

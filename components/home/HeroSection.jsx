@@ -4,13 +4,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  Shield, 
-  Award, 
+import {
+  ChevronLeft,
+  ChevronRight,
+  Shield,
+  Award,
   Clock,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 
 const heroSlides = [
@@ -18,42 +18,47 @@ const heroSlides = [
     id: 1,
     title: "Premium Security",
     subtitle: "Solutions",
-    description: "Discover our extensive collection of high-quality locks designed to protect what matters most to you.",
+    description:
+      "Discover our extensive collection of high-quality locks designed to protect what matters most to you.",
     image: "/images/hero/hero1.jpg",
-    cta: "Explore Collection"
+    cta: "Explore Collection",
   },
   {
     id: 2,
     title: "Mortise Locks",
     subtitle: "Excellence",
-    description: "Industry-leading mortise locks with superior craftsmanship and unmatched durability.",
+    description:
+      "Industry-leading mortise locks with superior craftsmanship and unmatched durability.",
     image: "/images/hero/hero2.jpg",
-    cta: "View Mortise Locks"
+    cta: "View Mortise Locks",
   },
   {
     id: 3,
     title: "Digital Smart",
     subtitle: "Locks",
-    description: "Step into the future with our advanced digital locking systems and smart security.",
+    description:
+      "Step into the future with our advanced digital locking systems and smart security.",
     image: "/images/hero/hero3.jpg",
-    cta: "Discover Smart Locks"
+    cta: "Discover Smart Locks",
   },
   {
     id: 4,
     title: "Furniture",
     subtitle: "Hardware",
-    description: "Elegant furniture locks that blend seamlessly with your interior design aesthetic.",
+    description:
+      "Elegant furniture locks that blend seamlessly with your interior design aesthetic.",
     image: "/images/hero/hero4.jpg",
-    cta: "Browse Furniture Locks"
+    cta: "Browse Furniture Locks",
   },
   {
     id: 5,
     title: "Industrial",
     subtitle: "Grade Security",
-    description: "Heavy-duty locks built for commercial and industrial applications.",
+    description:
+      "Heavy-duty locks built for commercial and industrial applications.",
     image: "/images/hero/hero5.jpg",
-    cta: "Industrial Solutions"
-  }
+    cta: "Industrial Solutions",
+  },
 ];
 
 const stats = [
@@ -66,6 +71,12 @@ export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // ✅ Fix: Only set mounted on client side
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const nextSlide = useCallback(() => {
     setDirection(1);
@@ -74,7 +85,9 @@ export default function HeroSection() {
 
   const prevSlide = () => {
     setDirection(-1);
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
+    );
   };
 
   const goToSlide = (index) => {
@@ -109,7 +122,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section 
+    <section
       className="relative h-screen min-h-[700px] max-h-[1000px] overflow-hidden bg-[#111111]"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
@@ -144,28 +157,30 @@ export default function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-[#C9A227]/20 rounded-full"
-            initial={{
-              x: Math.random() * window?.innerWidth || 1000,
-              y: Math.random() * window?.innerHeight || 800,
-            }}
-            animate={{
-              y: [null, -100],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+      {/* ✅ Fix: Animated Background Particles - Only render on client */}
+      {isMounted && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-[#C9A227]/20 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -100],
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: Math.random() * 3 + 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Content */}
       <div className="relative z-10 h-full container mx-auto px-4 flex items-center">
@@ -186,7 +201,9 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 bg-[#C9A227]/10 border border-[#C9A227]/30 text-[#C9A227] px-4 py-2 rounded-full"
             >
               <span className="w-2 h-2 bg-[#C9A227] rounded-full animate-pulse" />
-              <span className="text-sm font-medium">Premium Quality Locks</span>
+              <span className="text-sm font-medium">
+                Premium Quality Locks
+              </span>
             </motion.div>
 
             {/* Title */}
@@ -227,7 +244,10 @@ export default function HeroSection() {
               className="flex flex-wrap gap-4"
             >
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(201, 162, 39, 0.5)" }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 30px rgba(201, 162, 39, 0.5)",
+                }}
                 whileTap={{ scale: 0.95 }}
                 className="group bg-gradient-to-r from-[#C9A227] to-[#A68520] text-[#111111] px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 shadow-2xl shadow-[#C9A227]/30"
               >
@@ -235,7 +255,10 @@ export default function HeroSection() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(201, 162, 39, 0.1)" }}
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(201, 162, 39, 0.1)",
+                }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-[#C9A227] text-[#C9A227] px-8 py-4 rounded-full font-bold text-lg hover:text-white transition-colors"
               >
@@ -264,7 +287,9 @@ export default function HeroSection() {
                     <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#C9A227]/20 to-[#C9A227]/5 rounded-2xl flex items-center justify-center mb-4 border border-[#C9A227]/30">
                       <stat.icon className="w-8 h-8 text-[#C9A227]" />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-1">{stat.value}</h3>
+                    <h3 className="text-3xl font-bold text-white mb-1">
+                      {stat.value}
+                    </h3>
                     <p className="text-gray-400 text-sm">{stat.label}</p>
                   </motion.div>
                 ))}

@@ -20,7 +20,7 @@ import logo from "@/app/assets/Mini-Logo.png"
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Products", href: "/products", hasDropdown: true },
+  // { name: "Categories", href: "/categories", hasDropdown: true },
   { name: "Categories", href: "/categories" },
   { name: "About Us", href: "/about" },
   { name: "Contact", href: "/contact" },
@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-[#111111] text-white py-2 hidden md:block">
+      {/* <div className="bg-[#111111] text-white py-2 hidden md:block">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-6">
@@ -61,7 +61,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Navbar */}
       <motion.nav
@@ -127,7 +127,7 @@ export default function Navbar() {
                   />
 
                   {/* Dropdown */}
-                  <AnimatePresence>
+                  {/* <AnimatePresence>
                     {link.hasDropdown && activeDropdown === link.name && (
                       <motion.div
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -139,7 +139,7 @@ export default function Navbar() {
                         {["Raino Locks", "Mortise Locks", "Furniture Locks", "Padlocks", "Digital Locks"].map((item, i) => (
                           <Link
                             key={item}
-                            href={`/category/${item.toLowerCase().replace(" ", "-")}`}
+                            href={`/categories/${item.toLowerCase().replace(" ", "-")}`}
                             className="block px-4 py-3 text-gray-300 hover:bg-[#C9A227] hover:text-[#111111] transition-all duration-300"
                           >
                             {item}
@@ -147,7 +147,7 @@ export default function Navbar() {
                         ))}
                       </motion.div>
                     )}
-                  </AnimatePresence>
+                  </AnimatePresence> */}
                 </motion.div>
               ))}
             </div>
