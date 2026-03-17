@@ -4,26 +4,62 @@ import Admin from "@/models/Admin";
 
 export async function POST(req: Request) {
 
-  await connectDB();
+  try {
 
-  const body = await req.json();
+    await connectDB();
 
-  const admin = await Admin.findOne({
-    email: body.email,
-    password: body.password
-  });
+    const { email, password } = await req.json();
 
-  if (!admin) {
+    if (!email || !password) {
+
+      return NextResponse.json({
+        success: false,
+        message: "Email and password required"
+      });
+
+    }
+    console.log("emal",email)
+    console.log("emal",password)
+
+    const admin = await Admin.findOne({
+      email,
+      password
+    });
+
+    if (!admin) {
+
+      return NextResponse.json({
+        success: false,
+        message: "Invalid credentials"
+      });
+
+    }
+
+    const response = NextResponse.json({
+      success: true,
+      message: "Login successful"
+    });
+
+    /* set auth cookie */
+
+    response.cookies.set("admin-auth", "true", {
+      httpOnly: true,
+      path: "/",
+      maxAge: 60 * 60 * 24, // 1 day
+      secure: false
+    });
+
+    return response;
+
+  } catch (error) {
+
+    console.log("LOGIN ERROR:", error);
 
     return NextResponse.json({
-      success:false,
-      message:"Invalid credentials"
+      success: false,
+      message: "Server error"
     });
 
   }
-
-  return NextResponse.json({
-    success:true
-  });
 
 }

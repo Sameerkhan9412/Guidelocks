@@ -1,22 +1,33 @@
+"use client";
+
 import Link from "next/link";
 
-export default function Navbar() {
-  return (
-    <nav className="bg-black text-white px-10 py-4 flex justify-between items-center">
+export default function Navbar(){
 
-      <div className="text-2xl font-bold">
-        LOCKSAFE
-      </div>
+return(
 
-      <div className="flex gap-8">
+<header className="bg-white shadow">
 
-        <Link href="/">Home</Link>
-        <Link href="/locks">Locks</Link>
-        <Link href="/categories">Categories</Link>
-        <Link href="/contact">Contact</Link>
+<div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-      </div>
+<h1 className="text-2xl font-bold text-primary">
+LOCK<span className="text-gold">STORE</span>
+</h1>
 
-    </nav>
-  );
+<nav className="flex gap-6 text-sm">
+
+<Link href="/">Home</Link>
+<Link href="#categories">Categories</Link>
+<Link href="#products">Products</Link>
+<Link href="#reviews">Reviews</Link>
+<Link href="#contact">Contact</Link>
+
+</nav>
+
+</div>
+
+</header>
+
+)
+
 }

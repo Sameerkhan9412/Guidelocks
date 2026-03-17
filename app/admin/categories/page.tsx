@@ -52,6 +52,7 @@ export default function CategoriesPage() {
     if (image) {
       formData.append("image", image);
     }
+    console.log("fordmdata",formData)
 
     setLoading(true);
 
@@ -65,7 +66,7 @@ export default function CategoriesPage() {
         });
 
       } else {
-
+        console.log("i am formdaa",formData)
         await fetch("/api/categories", {
           method: "POST",
           body: formData

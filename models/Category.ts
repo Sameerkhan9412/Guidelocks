@@ -13,7 +13,7 @@ const CategorySchema = new Schema(
       unique: true
     },
 
-    imageUrl: {
+    image: {
       type: String
     }
   },

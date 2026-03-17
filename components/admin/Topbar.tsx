@@ -6,11 +6,20 @@ export default function Topbar() {
 
   const router = useRouter();
 
-  const logout = () => {
+  const logout = async () => {
 
-    localStorage.removeItem("admin");
+    try {
 
-    router.push("/admin/login");
+      await fetch("/api/admin/logout", {
+        method: "POST",
+      });
+
+      router.push("/admin/login");
+      router.refresh();
+
+    } catch (error) {
+      console.log("Logout failed", error);
+    }
 
   };
 
