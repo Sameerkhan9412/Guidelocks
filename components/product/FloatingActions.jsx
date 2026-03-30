@@ -172,7 +172,7 @@ export default function FloatingActions({
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(product?.name || "Product");
     const text = encodeURIComponent(
-      `Check out ${product?.name || "this product"} - Premium Lock from LockShop`
+      `Check out ${product?.name || "this product"} - Premium Lock from GuideLock`
     );
     const image = encodeURIComponent(product?.images?.[0] || "");
 
@@ -203,7 +203,7 @@ export default function FloatingActions({
       try {
         await navigator.share({
           title: product?.name || "Product",
-          text: `Check out ${product?.name || "this product"} - Premium Lock from LockShop`,
+          text: `Check out ${product?.name || "this product"} - Premium Lock from GuideLock`,
           url: window.location.href,
         });
       } catch (err) {
@@ -241,7 +241,7 @@ export default function FloatingActions({
   );
 
   // Call message
-  const callNumber = "+919876543210";
+  const callNumber = "+919897627670";
 
   if (!product) return null;
 
@@ -466,7 +466,7 @@ function MainFloatingBar({
 
         {/* WhatsApp Button */}
         <motion.a
-          href={`https://wa.me/919876543210?text=${whatsappMessage}`}
+          href={`https://wa.me/919897627670?text=${whatsappMessage}`}
           target="_blank"
           rel="noopener noreferrer"
           whileTap={{ scale: 0.95 }}
@@ -862,7 +862,7 @@ function MoreActionsPanel({
       icon: MessageSquare,
       label: "Ask a Question",
       desc: "Get expert assistance via WhatsApp",
-      href: `https://wa.me/919876543210?text=${whatsappMessage}`,
+      href: `https://wa.me/919897627670?text=${whatsappMessage}`,
       external: true,
     },
     {
@@ -1017,7 +1017,7 @@ function ContactPanel({ product, onClose, whatsappMessage, callNumber }) {
       label: "WhatsApp",
       desc: "Quick response, usually within minutes",
       value: "+91 98765 43210",
-      href: `https://wa.me/919876543210?text=${whatsappMessage}`,
+      href: `https://wa.me/919897627670?text=${whatsappMessage}`,
       color: "bg-green-500",
       external: true,
     },
@@ -1025,8 +1025,8 @@ function ContactPanel({ product, onClose, whatsappMessage, callNumber }) {
       icon: Mail,
       label: "Email",
       desc: "For detailed enquiries",
-      value: "sales@lockshop.com",
-      href: "mailto:sales@lockshop.com",
+      value: "info@vinayakexports.com",
+      href: "mailto:info@vinayakexports.com",
       color: "bg-blue-500",
     },
     {
@@ -1768,7 +1768,7 @@ export function DesktopFloatingActions({
         >
           {/* Call Button */}
           <motion.a
-            href="tel:+919876543210"
+            href="tel:+919897627670"
             whileHover={{ scale: 1.1, x: -5 }}
             whileTap={{ scale: 0.95 }}
             className="group relative w-14 h-14 bg-[#111111] text-white rounded-2xl flex items-center justify-center shadow-xl hover:bg-[#2F2F2F] transition-colors"
@@ -1781,7 +1781,7 @@ export function DesktopFloatingActions({
 
           {/* WhatsApp Button */}
           <motion.a
-            href={`https://wa.me/919876543210?text=${whatsappMessage}`}
+            href={`https://wa.me/9897627670?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1, x: -5 }}

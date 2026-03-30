@@ -3,7 +3,6 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Navbar from "@/components/home/Navbar";
 import Footer from "@/components/home/Footer";
 import HeroSection from "./HeroSection";
 import StorySection from "./StorySection";
@@ -23,20 +22,18 @@ export default function AboutPageClient() {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-[#F5F5F5]">
-      <Navbar />
       <HeroSection />
       <StorySection />
       <StatsSection />
       <MissionVision />
       <CoreValues />
       {/* <Timeline /> */}
-      <ManufacturingSection />
+      {/* <ManufacturingSection /> */}
       {/* <TeamSection /> */}
       {/* <CertificationsSection /> */}
       <WhyChooseUs />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <CTASection />
-      <Footer />
     </div>
   );
 }

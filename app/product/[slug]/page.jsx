@@ -58,16 +58,16 @@ export async function generateMetadata({ params }) {
 
   if (!product) {
     return {
-      title: "Product Not Found | LockShop",
+      title: "Product Not Found | GuideLock",
       description: "The requested product could not be found.",
     };
   }
 
   return {
-    title: `${product.name} | LockShop`,
+    title: `${product.name} | GuideLock`,
     description:
       product.description ||
-      `Premium ${product.name} - High quality security solution from LockShop`,
+      `Premium ${product.name} - High quality security solution from GuideLock`,
     openGraph: {
       title: product.name,
       description: product.description,

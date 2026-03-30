@@ -173,7 +173,7 @@ export default function StatsSection() {
         >
           <div className="inline-flex items-center gap-2 text-gray-400">
             <Heart className="w-5 h-5 text-red-500 fill-current" />
-            <span>Trusted by families across India since 1998</span>
+            <span>Trusted by families across India since 1980</span>
           </div>
         </motion.div>
       </div>

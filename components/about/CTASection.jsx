@@ -75,7 +75,7 @@ export default function CTASection() {
             {/* Contact Info */}
             <div className="space-y-4 mb-8">
               <a
-                href="tel:+919876543210"
+                href="tel:+919897627670"
                 className="flex items-center gap-4 text-gray-300 hover:text-[#C9A227] transition-colors group"
               >
                 <div className="w-12 h-12 bg-[#C9A227]/10 rounded-xl flex items-center justify-center group-hover:bg-[#C9A227] transition-colors">
@@ -83,12 +83,12 @@ export default function CTASection() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Call Us</p>
-                  <p className="font-semibold">+91 98765 43210</p>
+                  <p className="font-semibold">+91 9897627670</p>
                 </div>
               </a>
 
               <a
-                href="mailto:info@lockshop.com"
+                href="mailto:info@vinayakexports.com"
                 className="flex items-center gap-4 text-gray-300 hover:text-[#C9A227] transition-colors group"
               >
                 <div className="w-12 h-12 bg-[#C9A227]/10 rounded-xl flex items-center justify-center group-hover:bg-[#C9A227] transition-colors">
@@ -96,7 +96,7 @@ export default function CTASection() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Email Us</p>
-                  <p className="font-semibold">info@lockshop.com</p>
+                  <p className="font-semibold">info@vinayakexports.com</p>
                 </div>
               </a>
 
@@ -124,7 +124,7 @@ export default function CTASection() {
                 </motion.button>
               </Link>
               <motion.a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919897627670"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -156,7 +156,7 @@ export default function CTASection() {
                 
                 {/* Overlay Button */}
                 <a
-                  href="https://maps.google.com/?q=LockShop+Mumbai"
+                  href="https://maps.google.com/?q=GuideLock+"
                   target="_blank"
                   className="absolute inset-0"
                 />
@@ -165,17 +165,17 @@ export default function CTASection() {
               {/* Address */}
               <div className="p-6">
                 <h4 className="text-white font-bold text-lg mb-2">
-                  LockShop Headquarters
+                  GuideLock Headquarters
                 </h4>
                 <p className="text-gray-400">
-                  123 Security Street, Industrial Area,
+                  D-114/115,sector-1, UPSIDC,Industrial Area, Talanagri,Ramghat Road 
                   <br />
-                  Mumbai, Maharashtra 400001, India
+                  Aligarh -202001 Uttar pradesh , India
                 </p>
 
                 <div className="mt-4 flex gap-4">
                   <motion.a
-                    href="https://maps.google.com/?q=LockShop+Mumbai"
+                    href="https://www.google.com/maps?q=27.9340449,78.1361566&z=17&hl=en"
                     target="_blank"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

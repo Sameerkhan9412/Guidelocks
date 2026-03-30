@@ -1,7 +1,6 @@
 // app/page.jsx
 
 import { Suspense } from "react";
-import Navbar from "@/components/home/Navbar";
 import HeroSection from "@/components/home/HeroSection";
 import Banner from "@/components/home/Banner";
 import Categories from "@/components/home/Categories";
@@ -10,7 +9,6 @@ import AboutUs from "@/components/home/AboutUs";
 import PromoBanner from "@/components/home/PromoBanner";
 import Brands from "@/components/home/Brands";
 import Reviews from "@/components/home/Reviews";
-import Footer from "@/components/home/Footer";
 import Category from "@/models/Category";
 import Lock from "@/models/Lock";
 import Review from "@/models/Review";
@@ -37,16 +35,14 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen bg-[#F5F5F5]">
-      <Navbar />
       <HeroSection />
       <Banner />
       <Categories categories={categories} />
       <NewProducts products={locks} />
       <AboutUs />
       <PromoBanner />
-      <Brands />
+      {/* <Brands /> */}
       <Reviews reviews={reviews} />
-      <Footer />
     </main>
   );
 }

@@ -3,11 +3,11 @@
 import ContactPageClient from "@/components/contact/ContactPageClient";
 
 export const metadata = {
-  title: "Contact Us | LockShop - Get in Touch",
+  title: "Contact Us | GuideLock - Get in Touch",
   description:
-    "Contact LockShop for all your security needs. Reach us via phone, email, WhatsApp, or visit our showroom. Our team is ready to help you 24/7.",
+    "Contact GuideLock for all your security needs. Reach us via phone, email, WhatsApp, or visit our showroom. Our team is ready to help you 24/7.",
   openGraph: {
-    title: "Contact Us | LockShop",
+    title: "Contact Us | GuideLock",
     description: "Get in touch with India's leading lock manufacturer",
     images: ["/images/contact/og-image.jpg"],
   },

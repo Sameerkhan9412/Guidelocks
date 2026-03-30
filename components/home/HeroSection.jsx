@@ -3,7 +3,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import {
   ChevronLeft,
   ChevronRight,
@@ -12,15 +11,19 @@ import {
   Clock,
   ArrowRight,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
+// YouTube Video Configuration
+const YOUTUBE_VIDEO_ID = "R7MeJVyYQJA"; // Replace with your YouTube video ID
 
 const heroSlides = [
   {
     id: 1,
-    title: "Premium Security",
-    subtitle: "Solutions",
+    title: "Premium Door",
+    subtitle: "Handles",
     description:
-      "Discover our extensive collection of high-quality locks designed to protect what matters most to you.",
-    image: "/images/hero/hero1.jpg",
+      "Enhancing Security with Style – High-Quality Architectural Hardware for Residential & Commercial Spaces.",
     cta: "Explore Collection",
   },
   {
@@ -29,7 +32,6 @@ const heroSlides = [
     subtitle: "Excellence",
     description:
       "Industry-leading mortise locks with superior craftsmanship and unmatched durability.",
-    image: "/images/hero/hero2.jpg",
     cta: "View Mortise Locks",
   },
   {
@@ -38,7 +40,6 @@ const heroSlides = [
     subtitle: "Locks",
     description:
       "Step into the future with our advanced digital locking systems and smart security.",
-    image: "/images/hero/hero3.jpg",
     cta: "Discover Smart Locks",
   },
   {
@@ -47,7 +48,6 @@ const heroSlides = [
     subtitle: "Hardware",
     description:
       "Elegant furniture locks that blend seamlessly with your interior design aesthetic.",
-    image: "/images/hero/hero4.jpg",
     cta: "Browse Furniture Locks",
   },
   {
@@ -56,7 +56,6 @@ const heroSlides = [
     subtitle: "Grade Security",
     description:
       "Heavy-duty locks built for commercial and industrial applications.",
-    image: "/images/hero/hero5.jpg",
     cta: "Industrial Solutions",
   },
 ];
@@ -66,6 +65,48 @@ const stats = [
   { icon: Award, value: "25+", label: "Years Experience" },
   { icon: Clock, value: "24/7", label: "Support" },
 ];
+// https://www.youtube.com/watch?v=R7MeJVyYQJA
+
+// YouTube Background Video Component
+const YouTubeBackground = ({ videoId }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&disablekb=1&fs=0&cc_load_policy=0&start=0`;
+  const router=useRouter();
+
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Loading placeholder */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-[#111111] flex items-center justify-center z-10">
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-12 h-12 border-4 border-[#C9A227]/30 border-t-[#C9A227] rounded-full animate-spin" />
+            <span className="text-gray-400 text-sm">Loading video...</span>
+          </div>
+        </div>
+      )}
+
+      {/* YouTube iframe container */}
+      <div className="absolute inset-0 pointer-events-none">
+        <iframe
+          src={embedUrl}
+          title="Background Video"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] md:w-[177.77vh] md:h-[100vh] min-w-full min-h-full"
+          style={{
+            border: "none",
+          }}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          onLoad={() => setIsLoaded(true)}
+        />
+      </div>
+
+      {/* Dark overlays for better text readability */}
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/70 to-transparent z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-[#111111]/30 z-[2]" />
+    </div>
+  );
+};
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,7 +114,6 @@ export default function HeroSection() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
 
-  // ✅ Fix: Only set mounted on client side
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -103,21 +143,18 @@ export default function HeroSection() {
 
   const slideVariants = {
     enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 100 : -100,
       opacity: 0,
-      scale: 0.9,
     }),
     center: {
       zIndex: 1,
       x: 0,
       opacity: 1,
-      scale: 1,
     },
     exit: (direction) => ({
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 100 : -100,
       opacity: 0,
-      scale: 0.9,
     }),
   };
 
@@ -127,39 +164,12 @@ export default function HeroSection() {
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
-      {/* Background Slides */}
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.div
-          key={currentSlide}
-          custom={direction}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.5 },
-          }}
-          className="absolute inset-0"
-        >
-          {/* Image with overlay */}
-          <div className="absolute inset-0">
-            <Image
-              src={heroSlides[currentSlide].image}
-              alt={heroSlides[currentSlide].title}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/80 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-[#111111]/30" />
-          </div>
-        </motion.div>
-      </AnimatePresence>
+      {/* Single YouTube Video Background */}
+      {isMounted && <YouTubeBackground videoId={YOUTUBE_VIDEO_ID} />}
 
-      {/* ✅ Fix: Animated Background Particles - Only render on client */}
+      {/* Animated Background Particles */}
       {isMounted && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-[3]">
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
@@ -185,87 +195,95 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 h-full container mx-auto px-4 flex items-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Text Content */}
-          <motion.div
-            key={`content-${currentSlide}`}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
-            {/* Badge */}
+          {/* Text Content - Slides */}
+          <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-              className="inline-flex items-center gap-2 bg-[#C9A227]/10 border border-[#C9A227]/30 text-[#C9A227] px-4 py-2 rounded-full"
+              key={currentSlide}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.3 },
+              }}
+              className="space-y-8"
             >
-              <span className="w-2 h-2 bg-[#C9A227] rounded-full animate-pulse" />
-              <span className="text-sm font-medium">
-                Premium Quality Locks
-              </span>
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+                className="inline-flex items-center gap-2 bg-[#C9A227]/10 border border-[#C9A227]/30 text-[#C9A227] px-4 py-2 rounded-full"
+              >
+                <span className="w-2 h-2 bg-[#C9A227] rounded-full animate-pulse" />
+                <span className="text-sm font-medium">Premium Quality Locks</span>
+              </motion.div>
+
+              {/* Title */}
+              <div className="space-y-2">
+                <motion.h1
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight"
+                >
+                  {heroSlides[currentSlide].title}
+                </motion.h1>
+                <motion.h2
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-[#C9A227] to-[#E8C547] bg-clip-text text-transparent"
+                >
+                  {heroSlides[currentSlide].subtitle}
+                </motion.h2>
+              </div>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed"
+              >
+                {heroSlides[currentSlide].description}
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="flex flex-wrap gap-4"
+              >
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 30px rgba(201, 162, 39, 0.5)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group bg-gradient-to-r from-[#C9A227] to-[#A68520] text-[#111111] px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 shadow-2xl shadow-[#C9A227]/30"
+                >
+                  {heroSlides[currentSlide].cta}
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+                <Link href={"/categories"}>
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(201, 162, 39, 0.1)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="border-2 border-[#C9A227] text-[#C9A227] px-8 py-4 rounded-full font-bold text-lg hover:text-white transition-colors"
+                >
+                  View Catalog
+                </motion.button>
+                </Link>
+              </motion.div>
             </motion.div>
-
-            {/* Title */}
-            <div className="space-y-2">
-              <motion.h1
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight"
-              >
-                {heroSlides[currentSlide].title}
-              </motion.h1>
-              <motion.h2
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-[#C9A227] to-[#E8C547] bg-clip-text text-transparent"
-              >
-                {heroSlides[currentSlide].subtitle}
-              </motion.h2>
-            </div>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed"
-            >
-              {heroSlides[currentSlide].description}
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex flex-wrap gap-4"
-            >
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 0 30px rgba(201, 162, 39, 0.5)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="group bg-gradient-to-r from-[#C9A227] to-[#A68520] text-[#111111] px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 shadow-2xl shadow-[#C9A227]/30"
-              >
-                {heroSlides[currentSlide].cta}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: "rgba(201, 162, 39, 0.1)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-[#C9A227] text-[#C9A227] px-8 py-4 rounded-full font-bold text-lg hover:text-white transition-colors"
-              >
-                View Catalog
-              </motion.button>
-            </motion.div>
-          </motion.div>
+          </AnimatePresence>
 
           {/* Stats Card */}
           <motion.div

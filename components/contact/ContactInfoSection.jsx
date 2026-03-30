@@ -19,9 +19,9 @@ const contactInfo = [
     icon: Phone,
     title: "Phone",
     details: [
-      { label: "Sales", value: "+91 98765 43210" },
-      { label: "Support", value: "+91 98765 43211" },
-      { label: "Toll Free", value: "1800-123-4567" },
+      { label: "Sales", value: "+91 9897627670" },
+      { label: "Support", value: "+91 9897627670" },
+      { label: "Toll Free", value: "9897627670" },
     ],
     color: "from-blue-500 to-blue-600",
     bgColor: "bg-blue-50",
@@ -30,9 +30,9 @@ const contactInfo = [
     icon: Mail,
     title: "Email",
     details: [
-      { label: "General", value: "info@lockshop.com" },
-      { label: "Sales", value: "sales@lockshop.com" },
-      { label: "Support", value: "support@lockshop.com" },
+      { label: "General", value: "info@vinayakexports.com" },
+      { label: "Sales", value: "info@vinayakexports.com" },
+      { label: "Support", value: "info@vinayakexports.com" },
     ],
     color: "from-purple-500 to-purple-600",
     bgColor: "bg-purple-50",
@@ -85,43 +85,6 @@ export default function ContactInfoSection() {
           </p>
         </motion.div>
 
-        {/* Info Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {contactInfo.map((info, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className={`${info.bgColor} rounded-2xl p-6 border border-transparent hover:border-[#C9A227]/20 transition-all duration-300 group`}
-            >
-              {/* Icon */}
-              <div
-                className={`w-14 h-14 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-lg`}
-              >
-                <info.icon className="w-7 h-7 text-white" />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold text-[#111111] mb-4">
-                {info.title}
-              </h3>
-
-              {/* Details */}
-              <div className="space-y-3">
-                {info.details.map((detail, i) => (
-                  <div key={i} className="flex justify-between items-center">
-                    <span className="text-gray-500 text-sm">{detail.label}</span>
-                    <span className="text-[#111111] font-medium text-sm">
-                      {detail.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Quick Contact Bar */}
         <motion.div
@@ -147,7 +110,7 @@ export default function ContactInfoSection() {
 
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+919897627670"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#C9A227] text-[#111111] px-6 py-3 rounded-full font-bold flex items-center gap-2"
@@ -156,7 +119,7 @@ export default function ContactInfoSection() {
                 Call Now
               </motion.a>
               <motion.a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919897627670"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -98,13 +98,13 @@ export default function MapSection() {
                   <div className="text-center">
                     <MapPin className="w-16 h-16 text-[#C9A227] mx-auto mb-4" />
                     <h4 className="text-lg font-bold text-[#111111] mb-2">
-                      LockShop Showroom
+                      GuideLock Showroom
                     </h4>
                     <p className="text-gray-600 mb-4">
-                      123 Security Street, Mumbai
+                      D-114/115,sector-1, UPSIDC,Industrial Area , Talanagri,Ramghat Road 
                     </p>
                     <motion.a
-                      href="https://maps.google.com/?q=LockShop+Mumbai"
+                      href="https://www.google.com/maps?q=27.9340449,78.1361566&z=17&hl=en"
                       target="_blank"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -132,15 +132,15 @@ export default function MapSection() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div>
                     <h4 className="text-white font-bold mb-1">
-                      LockShop Head Office & Showroom
+                      GuideLock Head Office & Showroom
                     </h4>
                     <p className="text-gray-400 text-sm">
-                      123 Security Street, Industrial Area, Mumbai - 400001
+                      D-114/115,sector-1, UPSIDC,Industrial Area , Talanagri,Ramghat Road 
                     </p>
                   </div>
                   <div className="flex gap-3">
                     <motion.a
-                      href="https://maps.google.com/?q=LockShop+Mumbai"
+                      href="hD-114/115,sector-1, UPSIDC,Industrial Area , Talanagri,Ramghat Road , Uttar Predesh, India"
                       target="_blank"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -230,13 +230,13 @@ export default function MapSection() {
                 Call us and we'll guide you to our showroom
               </p>
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+919897627670"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-[#111111] px-6 py-3 rounded-full font-bold flex items-center justify-center gap-2 w-full"
               >
                 <Phone className="w-4 h-4" />
-                +91 98765 43210
+                +91 9897627670
               </motion.a>
             </div>
           </motion.div>

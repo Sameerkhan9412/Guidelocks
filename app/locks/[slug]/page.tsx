@@ -5,7 +5,7 @@ interface Props {
 async function getLock(slug: string) {
 
   const res = await fetch(
-    `http://localhost:3000/api/locks`
+    `/api/locks`
   );
 
   const locks = await res.json();

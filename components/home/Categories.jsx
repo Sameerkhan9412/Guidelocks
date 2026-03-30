@@ -52,13 +52,13 @@ export default function Categories({ categories = [] }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayCategories.map((category, index) => (
             <motion.div
-              key={category.slug || index}
+              key={category._id || index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Link href={`/category/${category.slug}`}>
+              <Link href={`/categories?category=${category._id}`}>
                 <motion.div
                   whileHover={{ y: -10 }}
                   className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"

@@ -18,22 +18,22 @@ export default function HeroSection() {
     {
       icon: Phone,
       label: "Call Us",
-      value: "+91 98765 43210",
-      href: "tel:+919876543210",
+      value: "+91 9897627670",
+      href: "tel:+919897627670",
       color: "bg-blue-500",
     },
     {
       icon: MessageCircle,
       label: "WhatsApp",
       value: "Quick Response",
-      href: "https://wa.me/919876543210",
+      href: "https://wa.me/919897627670",
       color: "bg-green-500",
     },
     {
       icon: Mail,
       label: "Email Us",
-      value: "info@lockshop.com",
-      href: "mailto:info@lockshop.com",
+      value: "info@vinayakexports.com",
+      href: "mailto:info@vinayakexports.com",
       color: "bg-purple-500",
     },
     {

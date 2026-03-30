@@ -36,7 +36,7 @@ export default function ProductInfo({ product, isWishlisted, onToggleWishlist })
 
   const handleShare = (platform) => {
     const url = window.location.href;
-    const text = `Check out ${product.name} - Premium Lock from LockShop`;
+    const text = `Check out ${product.name} - Premium Lock from GuideLock`;
 
     const shareUrls = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
@@ -174,7 +174,7 @@ export default function ProductInfo({ product, isWishlisted, onToggleWishlist })
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row gap-3">
         <motion.a
-          href={`tel:+919876543210`}
+          href={`tel:+919897627670`}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="flex-1 bg-[#111111] text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-[#2F2F2F] transition-colors"
@@ -183,7 +183,7 @@ export default function ProductInfo({ product, isWishlisted, onToggleWishlist })
           Call to Order
         </motion.a>
         <motion.a
-          href={`https://wa.me/919876543210?text=Hi, I'm interested in ${product.name}`}
+          href={`https://wa.me/919897627670?text=Hi, I'm interested in ${product.name}`}
           target="_blank"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -290,7 +290,7 @@ export default function ProductInfo({ product, isWishlisted, onToggleWishlist })
         <h4 className="font-bold text-[#111111] mb-4">Need Help?</h4>
         <div className="flex flex-col sm:flex-row gap-4">
           <a
-            href="tel:+919876543210"
+            href="tel:+919897627670"
             className="flex items-center gap-3 text-[#111111] hover:text-[#C9A227] transition-colors"
           >
             <div className="w-10 h-10 bg-[#C9A227] rounded-full flex items-center justify-center">
@@ -298,11 +298,11 @@ export default function ProductInfo({ product, isWishlisted, onToggleWishlist })
             </div>
             <div>
               <p className="text-xs text-gray-500">Call us at</p>
-              <p className="font-semibold">+91 98765 43210</p>
+              <p className="font-semibold">+91 9897627670</p>
             </div>
           </a>
           <a
-            href="mailto:info@lockshop.com"
+            href="mailto:info@vinayakexports.com"
             className="flex items-center gap-3 text-[#111111] hover:text-[#C9A227] transition-colors"
           >
             <div className="w-10 h-10 bg-[#C9A227] rounded-full flex items-center justify-center">
@@ -310,7 +310,7 @@ export default function ProductInfo({ product, isWishlisted, onToggleWishlist })
             </div>
             <div>
               <p className="text-xs text-gray-500">Email us at</p>
-              <p className="font-semibold">info@lockshop.com</p>
+              <p className="font-semibold">info@GuideLock.com</p>
             </div>
           </a>
         </div>

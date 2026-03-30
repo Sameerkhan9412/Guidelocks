@@ -7,7 +7,7 @@ export default function AddLockPage() {
   const [description, setDescription] = useState("");
 
   const [category, setCategory] = useState("");
-  const [subcategory, setSubcategory] = useState("");
+  // const [subcategory, setSubcategory] = useState("");
 
   const [features, setFeatures] = useState<string[]>([]);
   const [newFeature, setNewFeature] = useState("");
@@ -15,7 +15,7 @@ export default function AddLockPage() {
   const [images, setImages] = useState<File[]>([]);
 
   const [categories, setCategories] = useState<any[]>([]);
-  const [subcategories, setSubcategories] = useState<any[]>([]);
+  // const [subcategories, setSubcategories] = useState<any[]>([]);
 
   useEffect(() => {
     loadData();
@@ -29,7 +29,7 @@ export default function AddLockPage() {
     const subData = await subRes.json();
 
     setCategories(catData.data);
-    setSubcategories(subData.data);
+    // setSubcategories(subData.data);
   };
 
   const addFeature = () => {
@@ -62,7 +62,7 @@ export default function AddLockPage() {
     formData.append("name", name);
     formData.append("description", description);
     formData.append("category", category);
-    formData.append("subcategory", subcategory);
+    // formData.append("subcategory", subcategory);
 
     formData.append("features", JSON.stringify(features));
 
@@ -102,7 +102,7 @@ export default function AddLockPage() {
           ))}
         </select>
 
-        <select
+        {/* <select
           className="border p-2"
           onChange={(e) => setSubcategory(e.target.value)}
         >
@@ -113,7 +113,7 @@ export default function AddLockPage() {
               {sub.name}
             </option>
           ))}
-        </select>
+        </select> */}
 
         <textarea
           placeholder="Description"

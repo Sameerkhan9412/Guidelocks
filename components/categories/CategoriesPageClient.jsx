@@ -4,8 +4,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams, useRouter } from "next/navigation";
-import Navbar from "@/components/home/Navbar";
-import Footer from "@/components/home/Footer";
 import CategorySidebar from "./CategorySidebar";
 import ProductGrid from "./ProductGrid";
 import MobileFilterDrawer from "./MobileFilterDrawer";
@@ -168,120 +166,6 @@ export default function CategoriesPageClient({
 
   return (
     <div className="min-h-screen bg-[#F5F5F5]">
-      <Navbar />
-
-      {/* Page Header */}
-      <section className="bg-[#111111] pt-8 pb-16 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          />
-        </div>
-
-        {/* Decorative Elements */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-32 -right-32 w-64 h-64 border border-[#C9A227]/20 rounded-full"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-20 -left-20 w-40 h-40 border border-[#C9A227]/10 rounded-full"
-        />
-
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Breadcrumb */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-2 text-sm text-gray-400 mb-6"
-          >
-            <Link href="/" className="hover:text-[#C9A227] transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-[#C9A227]">Categories</span>
-            {selectedCategory !== "all" && (
-              <>
-                <ChevronRight className="w-4 h-4" />
-                <span className="text-white">
-                  {getCategoryName(selectedCategory)}
-                </span>
-              </>
-            )}
-            {selectedSubCategory !== "all" && (
-              <>
-                <ChevronRight className="w-4 h-4" />
-                <span className="text-white">
-                  {getSubCategoryName(selectedSubCategory)}
-                </span>
-              </>
-            )}
-          </motion.div>
-
-          {/* Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              {selectedCategory === "all" ? (
-                <>
-                  Browse <span className="text-[#C9A227]">Categories</span>
-                </>
-              ) : (
-                <>
-                  <span className="text-[#C9A227]">
-                    {getCategoryName(selectedCategory)}
-                  </span>
-                </>
-              )}
-            </h1>
-            <p className="text-gray-400 text-lg max-w-2xl">
-              Explore our extensive collection of premium security solutions.
-              Filter by category to find the perfect lock for your needs.
-            </p>
-          </motion.div>
-
-          {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-wrap gap-6 mt-8"
-          >
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[#C9A227] rounded-full" />
-              <span className="text-gray-300">
-                <span className="text-white font-bold">{categories.length}</span>{" "}
-                Categories
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[#C9A227] rounded-full" />
-              <span className="text-gray-300">
-                <span className="text-white font-bold">{allProducts.length}</span>{" "}
-                Products
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[#C9A227] rounded-full" />
-              <span className="text-gray-300">
-                <span className="text-white font-bold">
-                  {filteredProducts.length}
-                </span>{" "}
-                Results
-              </span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Main Content */}
       <section className="py-8">
@@ -333,7 +217,7 @@ export default function CategoriesPageClient({
                       placeholder="Search products..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 bg-[#F5F5F5] border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C9A227] focus:border-transparent transition-all"
+                      className="w-full pl-10 pr-4 py-2.5 bg-[#F5F5F5] border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C9A227] focus:border-transparent transition-all text-gray-500"
                     />
                     {searchQuery && (
                       <button
@@ -353,10 +237,10 @@ export default function CategoriesPageClient({
                       <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
-                        className="bg-[#F5F5F5] border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A227] cursor-pointer"
+                        className="bg-[#F5F5F5] border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#C9A227] cursor-pointer text-gray-500"
                       >
                         {sortOptions.map((option) => (
-                          <option key={option.value} value={option.value}>
+                          <option key={option.value} value={option.value} className="text-gray-500">
                             {option.label}
                           </option>
                         ))}
@@ -546,8 +430,6 @@ export default function CategoriesPageClient({
         productCounts={allProducts}
         resultsCount={filteredProducts.length}
       />
-
-      <Footer />
     </div>
   );
 }

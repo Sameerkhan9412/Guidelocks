@@ -215,10 +215,10 @@ export default function ContactFormSection() {
                     Call us at
                   </p>
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+919897627670"
                     className="text-[#C9A227] font-bold text-lg hover:underline"
                   >
-                    +91 98765 43210
+                    +91 9897627670
                   </a>
                 </div>
               </div>
@@ -303,7 +303,7 @@ export default function ContactFormSection() {
                           value={formData.name}
                           onChange={(e) => handleChange("name", e.target.value)}
                           placeholder="Enter your name"
-                          className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl border-2 transition-all focus:outline-none ${
+                          className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl text-gray-500 text-gray-500 border-2 transition-all focus:outline-none ${
                             errors.name
                               ? "border-red-300 focus:border-red-500"
                               : "border-transparent focus:border-[#C9A227]"
@@ -327,7 +327,7 @@ export default function ContactFormSection() {
                           value={formData.email}
                           onChange={(e) => handleChange("email", e.target.value)}
                           placeholder="Enter your email"
-                          className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl border-2 transition-all focus:outline-none ${
+                          className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl text-gray-500 border-2 transition-all focus:outline-none ${
                             errors.email
                               ? "border-red-300 focus:border-red-500"
                               : "border-transparent focus:border-[#C9A227]"
@@ -354,7 +354,7 @@ export default function ContactFormSection() {
                           value={formData.phone}
                           onChange={(e) => handleChange("phone", e.target.value)}
                           placeholder="Enter your phone"
-                          className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl border-2 transition-all focus:outline-none ${
+                          className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl text-gray-500 border-2 transition-all focus:outline-none ${
                             errors.phone
                               ? "border-red-300 focus:border-red-500"
                               : "border-transparent focus:border-[#C9A227]"
@@ -378,7 +378,7 @@ export default function ContactFormSection() {
                           value={formData.company}
                           onChange={(e) => handleChange("company", e.target.value)}
                           placeholder="Enter company name"
-                          className="w-full pl-12 pr-4 py-4 bg-white rounded-xl border-2 border-transparent focus:border-[#C9A227] transition-all focus:outline-none"
+                          className="w-full pl-12 pr-4 py-4 bg-white rounded-xl text-gray-500 border-2 border-transparent focus:border-[#C9A227] transition-all focus:outline-none"
                         />
                       </div>
                     </div>
@@ -398,7 +398,7 @@ export default function ContactFormSection() {
                           value={formData.city}
                           onChange={(e) => handleChange("city", e.target.value)}
                           placeholder="Enter your city"
-                          className="w-full pl-12 pr-4 py-4 bg-white rounded-xl border-2 border-transparent focus:border-[#C9A227] transition-all focus:outline-none"
+                          className="w-full pl-12 pr-4 py-4 bg-white rounded-xl text-gray-500 border-2 border-transparent focus:border-[#C9A227] transition-all focus:outline-none"
                         />
                       </div>
                     </div>
@@ -412,7 +412,7 @@ export default function ContactFormSection() {
                         <button
                           type="button"
                           onClick={() => setShowInquiryDropdown(!showInquiryDropdown)}
-                          className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl border-2 transition-all focus:outline-none text-left flex items-center justify-between ${
+                          className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl text-gray-500 border-2 transition-all focus:outline-none text-left flex items-center justify-between ${
                             errors.inquiryType
                               ? "border-red-300"
                               : "border-transparent focus:border-[#C9A227]"
@@ -441,7 +441,7 @@ export default function ContactFormSection() {
                               initial={{ opacity: 0, y: -10 }}
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -10 }}
-                              className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-20"
+                              className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl text-gray-500 shadow-xl border border-gray-100 overflow-hidden z-20"
                             >
                               {inquiryTypes.map((type) => (
                                 <button
@@ -483,7 +483,7 @@ export default function ContactFormSection() {
                       value={formData.subject}
                       onChange={(e) => handleChange("subject", e.target.value)}
                       placeholder="Brief subject of your inquiry"
-                      className="w-full px-4 py-4 bg-white rounded-xl border-2 border-transparent focus:border-[#C9A227] transition-all focus:outline-none"
+                      className="w-full px-4 py-4 bg-white rounded-xl text-gray-500 border-2 border-transparent focus:border-[#C9A227] transition-all focus:outline-none"
                     />
                   </div>
 
@@ -499,7 +499,7 @@ export default function ContactFormSection() {
                         onChange={(e) => handleChange("message", e.target.value)}
                         placeholder="Tell us about your requirements..."
                         rows={5}
-                        className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl border-2 transition-all focus:outline-none resize-none ${
+                        className={`w-full pl-12 pr-4 py-4 bg-white rounded-xl text-gray-500 border-2 transition-all focus:outline-none resize-none ${
                           errors.message
                             ? "border-red-300 focus:border-red-500"
                             : "border-transparent focus:border-[#C9A227]"

@@ -46,11 +46,12 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "#", color: "#1877F2" },
-  { icon: Instagram, href: "#", color: "#E4405F" },
-  { icon: Twitter, href: "#", color: "#1DA1F2" },
-  { icon: Youtube, href: "#", color: "#FF0000" },
-  { icon: Linkedin, href: "#", color: "#0A66C2" },
+  // { icon: Facebook, href: "#", color: "#1877F2" },
+  { icon: Instagram, href: "https://www.instagram.com/vinayakinternational12?igsh=MWJwMXJncHBldm9lMg==", color: "#E4405F" },
+  { icon: Instagram, href: "https://www.instagram.com/vinayak.international12?igsh=Y2JiYmpjbWE5dW5x", color: "#E4405F" },
+  // { icon: Twitter, href: "#", color: "#1DA1F2" },
+  // { icon: Youtube, href: "#", color: "#FF0000" },
+  // { icon: Linkedin, href: "#", color: "#0A66C2" },
 ];
 
 export default function Footer() {
@@ -133,7 +134,8 @@ export default function Footer() {
                 <p className="text-xs text-gray-400 -mt-1">Security Solutions</p>
               </div>
             </Link>
-            <p className="text-gray-400 mb-6 max-w-sm">
+            <p className="text-gray-400 mb-6 max-w-sm mt-4
+            ">
               India's leading manufacturer and supplier of premium quality locks 
               and security solutions. Protecting homes and businesses since 1980.
             </p>
@@ -142,11 +144,11 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 text-[#C9A227]" />
-                <span>D-114/115,sector-1, UPSIDC,Industrial Area , Talanagri , Ramghat Road , Aligarh -202001 , Uttar Pradesh </span>
+                <span>D-114/115,sector-1, UPSIDC,Industrial Area , Talanagri,Ramghat Road , Aligarh -202001, Uttar pradesh , India</span>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-[#C9A227]" />
-                <span>+91 9897627670</span>
+                <span>+91 98976 27670</span>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Mail className="w-5 h-5 text-[#C9A227]" />
@@ -169,7 +171,7 @@ export default function Footer() {
               {footerLinks.products.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                    href={"#"}
                     className="text-gray-400 hover:text-[#C9A227] transition-colors flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
@@ -189,7 +191,7 @@ export default function Footer() {
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                    href={"#"}
                     className="text-gray-400 hover:text-[#C9A227] transition-colors flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
@@ -209,7 +211,7 @@ export default function Footer() {
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                    href={"#"}
                     className="text-gray-400 hover:text-[#C9A227] transition-colors flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />

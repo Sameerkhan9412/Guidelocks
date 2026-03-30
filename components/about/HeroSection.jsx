@@ -41,7 +41,7 @@ export default function HeroSection() {
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
         <Image
           src="/images/about/hero-bg.jpg"
-          alt="LockShop Factory"
+          alt="GuideLock Factory"
           fill
           className="object-cover"
           priority
@@ -106,7 +106,7 @@ export default function HeroSection() {
             >
               <span className="w-2 h-2 bg-[#C9A227] rounded-full animate-pulse" />
               <span className="text-[#C9A227] text-sm font-semibold">
-                Established 1998
+                Established 1980
               </span>
             </motion.div>
 
@@ -122,7 +122,7 @@ export default function HeroSection() {
               <span className="text-[#C9A227]">Future</span> Since
               <br />
               <span className="relative inline-block">
-                1998
+                1980
                 <motion.svg
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -149,9 +149,7 @@ export default function HeroSection() {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 max-w-xl leading-relaxed"
             >
-              For over 25 years, LockShop has been India's trusted name in premium 
-              security solutions. From humble beginnings to industry leadership, 
-              our journey is built on quality, innovation, and customer trust.
+              Vinayak Export is a trusted name in the manufacturing and export of premium-quality door handles and mortise locks, delivering strength, security, and modern design to customers worldwide. With years of industry experience, we specialize in crafting durable hardware solutions that combine functionality with elegant aesthetics.
             </motion.p>
 
             {/* CTA Buttons */}

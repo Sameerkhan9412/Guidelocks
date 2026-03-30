@@ -817,7 +817,7 @@ function QuickViewModal({ product, onClose, isWishlisted, onToggleWishlist }) {
               {/* Primary Actions */}
               <div className="flex gap-3">
                 <motion.a
-                  href="tel:+919876543210"
+                  href="tel:+919897627670"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="flex-1 bg-[#111111] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#2F2F2F] transition-colors"
@@ -826,7 +826,7 @@ function QuickViewModal({ product, onClose, isWishlisted, onToggleWishlist }) {
                   Call to Order
                 </motion.a>
                 <motion.a
-                  href={`https://wa.me/919876543210?text=Hi, I'm interested in ${product.name}`}
+                  href={`https://wa.me/9897627670?text=Hi, I'm interested in ${product.name}`}
                   target="_blank"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

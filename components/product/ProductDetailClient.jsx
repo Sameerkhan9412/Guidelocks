@@ -5,8 +5,6 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/home/Navbar";
-import Footer from "@/components/home/Footer";
 import ImageGallery from "./ImageGallery";
 import ProductInfo from "./ProductInfo";
 import ProductTabs from "./ProductTabs";
@@ -48,7 +46,7 @@ export default function ProductDetailClient({
 
   return (
     <div className="min-h-screen bg-[#F5F5F5]" ref={topRef}>
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Breadcrumb Section */}
       <section className="bg-[#111111] py-6">
@@ -207,13 +205,13 @@ export default function ProductDetailClient({
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+919897627670"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto bg-gradient-to-r from-[#C9A227] to-[#A68520] text-[#111111] px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-[#C9A227]/30 hover:shadow-[#C9A227]/50 transition-all flex items-center justify-center gap-2"
               >
                 <Headphones className="w-5 h-5" />
-                Call Now: +91 98765 43210
+                Call Now: +91 9897627670
               </motion.a>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -248,8 +246,6 @@ export default function ProductDetailClient({
           </motion.button>
         )}
       </AnimatePresence>
-
-      <Footer />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { Check, Award, Users, Building, Calendar } from "lucide-react";
 import leftImg from "@/public/uploads/categories/1773655352943-Verti-Bolt-G111.png"
+import Link from "next/link";
 
 const stats = [
   { icon: Calendar, value: "25+", label: "Years Experience" },
@@ -15,12 +16,11 @@ const stats = [
 ];
 
 const highlights = [
-  "ISO 9001:2015 Certified Company",
-  "Premium Quality Raw Materials",
-  "State-of-the-Art Manufacturing",
-  "Rigorous Quality Control",
-  "Pan India Distribution Network",
-  "24/7 Customer Support",
+  "High-quality door handles & mortise locks",
+  "Modern & durable designs",
+  "Competitive pricing for B2B buyers",
+  "Bulk manufacturing & export capability",
+  "On-time delivery & customer support",
 ];
 
 export default function AboutUs() {
@@ -139,20 +139,23 @@ export default function AboutUs() {
               </motion.span>
               <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 Trusted Security Solutions
-                <span className="text-[#C9A227]"> Since 1998</span>
+                <span className="text-[#C9A227]"> Since 1980</span>
               </h2>
             </div>
 
             <p className="text-gray-400 text-lg leading-relaxed">
-              We are one of India's leading manufacturers and suppliers of premium quality 
-              locks and security solutions. With over 25 years of experience, we have built 
-              a reputation for excellence, innovation, and customer satisfaction.
+             Vinayak Export is a trusted name in the manufacturing and export of premium-quality door handles and mortise locks, delivering strength, security, and modern design to customers worldwide. With years of industry experience, we specialize in crafting durable hardware solutions that combine functionality with elegant aesthetics.
+
             </p>
 
             <p className="text-gray-400 leading-relaxed">
-              Our state-of-the-art manufacturing facility, combined with rigorous quality 
-              control processes, ensures that every product meets the highest standards of 
-              security and durability.
+              As a leading manufacturer, Vinayak Export is committed to quality excellence, using advanced production technology and high-grade raw materials to ensure long-lasting performance. Our wide range of products includes designer door handles, mortise locks, and architectural hardware suitable for residential, commercial, and industrial applications.
+            </p>
+            <p className="text-gray-400 leading-relaxed">
+              We focus on innovation, precision engineering, and strict quality control to meet international standards. Our products are highly demanded in domestic and global markets due to their superior finish, corrosion resistance, and robust construction.
+            </p>
+            <p className="text-gray-400 leading-relaxed">
+              At Vinayak Export, customer satisfaction is our top priority. We provide customized solutions, competitive pricing, and timely delivery, making us a reliable partner for distributors, wholesalers, and builders.
             </p>
 
             {/* Highlights Grid */}
@@ -199,6 +202,7 @@ export default function AboutUs() {
               viewport={{ once: true }}
               className="flex flex-wrap gap-4 pt-4"
             >
+              <Link href={"./about"}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -206,6 +210,8 @@ export default function AboutUs() {
               >
                 Learn More About Us
               </motion.button>
+              </Link>
+              <Link href={"./contact"}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -213,6 +219,7 @@ export default function AboutUs() {
               >
                 Contact Us
               </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

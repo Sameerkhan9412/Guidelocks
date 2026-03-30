@@ -13,7 +13,7 @@ import {
 
 const faqs = [
   {
-    question: "How can I become a LockShop dealer?",
+    question: "How can I become a GuideLock dealer?",
     answer:
       "To become a dealer, fill out the contact form selecting 'Become a Dealer' as the inquiry type, or call our sales team directly. We'll guide you through the application process, which includes verification and a minimum order requirement.",
   },
@@ -200,7 +200,7 @@ export default function FAQSection() {
               </div>
               <div className="flex gap-4">
                 <motion.a
-                  href="tel:+919876543210"
+                  href="tel:+919897627670"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-[#C9A227] text-[#111111] px-6 py-3 rounded-full font-bold flex items-center gap-2"

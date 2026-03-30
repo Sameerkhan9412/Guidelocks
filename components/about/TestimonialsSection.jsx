@@ -12,7 +12,7 @@ const testimonials = [
     position: "Homeowner, Mumbai",
     image: "/images/testimonials/arjun.jpg",
     rating: 5,
-    text: "LockShop's mortise lock has been securing my home for 5 years now. The quality is exceptional, and their after-sales service is top-notch. Highly recommend!",
+    text: "GuideLock's mortise lock has been securing my home for 5 years now. The quality is exceptional, and their after-sales service is top-notch. Highly recommend!",
     videoUrl: null,
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     position: "Interior Designer, Delhi",
     image: "/images/testimonials/sneha.jpg",
     rating: 5,
-    text: "I recommend LockShop to all my clients. Their locks not only provide excellent security but also complement modern interior designs beautifully.",
+    text: "I recommend GuideLock to all my clients. Their locks not only provide excellent security but also complement modern interior designs beautifully.",
     videoUrl: "#",
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     position: "Hotel Manager, Jaipur",
     image: "/images/testimonials/rahul.jpg",
     rating: 5,
-    text: "We've installed over 200 LockShop locks in our hotel. The durability and reliability are unmatched. Our guests feel safe, and that's what matters most.",
+    text: "We've installed over 200 GuideLock locks in our hotel. The durability and reliability are unmatched. Our guests feel safe, and that's what matters most.",
     videoUrl: null,
   },
   {
@@ -36,7 +36,7 @@ const testimonials = [
     position: "Architect, Bangalore",
     image: "/images/testimonials/priya.jpg",
     rating: 5,
-    text: "The smart locks from LockShop have revolutionized how my clients think about home security. Modern, reliable, and easy to use.",
+    text: "The smart locks from GuideLock have revolutionized how my clients think about home security. Modern, reliable, and easy to use.",
     videoUrl: "#",
   },
   {
@@ -44,7 +44,7 @@ const testimonials = [
     position: "Builder, Pune",
     image: "/images/testimonials/vikram.jpg",
     rating: 5,
-    text: "As a builder, I've tried many lock brands. LockShop stands out for quality and price. They're my go-to for all residential projects.",
+    text: "As a builder, I've tried many lock brands. GuideLock stands out for quality and price. They're my go-to for all residential projects.",
     videoUrl: null,
   },
 ];
@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
             What Our <span className="text-[#C9A227]">Customers</span> Say
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Real stories from real customers who trust LockShop for their security needs
+            Real stories from real customers who trust GuideLock for their security needs
           </p>
         </motion.div>
 

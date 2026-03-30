@@ -1678,7 +1678,7 @@ function FAQTab({ product }) {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
-              href="tel:+919876543210"
+              href="tel:+919897627670"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto bg-[#C9A227] text-[#111111] px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#C9A227]/30"
@@ -1686,7 +1686,7 @@ function FAQTab({ product }) {
               <span>Call Support</span>
             </motion.a>
             <motion.a
-              href="mailto:support@lockshop.com"
+              href="mailto:info@vinayakexports.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto border-2 border-white text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white hover:text-[#111111] transition-colors"

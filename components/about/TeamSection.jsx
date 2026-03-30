@@ -20,10 +20,10 @@ const teamMembers = [
     name: "Rajesh Kumar",
     position: "Founder & Chairman",
     image: "/images/about/team/rajesh.jpg",
-    bio: "With over 30 years of experience in the security industry, Rajesh founded LockShop with a vision to revolutionize security in India. His leadership and commitment to quality have made LockShop a household name.",
+    bio: "With over 30 years of experience in the security industry, Rajesh founded GuideLock with a vision to revolutionize security in India. His leadership and commitment to quality have made GuideLock a household name.",
     linkedin: "#",
     twitter: "#",
-    email: "rajesh@lockshop.com",
+    email: "rajesh@GuideLock.com",
     experience: "30+ years",
     achievements: ["Padma Shri Nominee 2020", "Business Leader Award 2018"],
   },
@@ -31,10 +31,10 @@ const teamMembers = [
     name: "Priya Sharma",
     position: "CEO",
     image: "/images/about/team/priya.jpg",
-    bio: "Priya brings 20 years of strategic leadership to LockShop. Her focus on innovation and market expansion has driven the company's growth by 300% in the last decade.",
+    bio: "Priya brings 20 years of strategic leadership to GuideLock. Her focus on innovation and market expansion has driven the company's growth by 300% in the last decade.",
     linkedin: "#",
     twitter: "#",
-    email: "priya@lockshop.com",
+    email: "priya@GuideLock.com",
     experience: "20+ years",
     achievements: ["Forbes 40 Under 40", "Women CEO of the Year 2022"],
   },
@@ -42,10 +42,10 @@ const teamMembers = [
     name: "Amit Patel",
     position: "CTO",
     image: "/images/about/team/amit.jpg",
-    bio: "Leading our R&D division, Amit is the mastermind behind our smart lock innovations. His patents and technological contributions have positioned LockShop at the forefront of security technology.",
+    bio: "Leading our R&D division, Amit is the mastermind behind our smart lock innovations. His patents and technological contributions have positioned GuideLock at the forefront of security technology.",
     linkedin: "#",
     twitter: "#",
-    email: "amit@lockshop.com",
+    email: "amit@GuideLock.com",
     experience: "15+ years",
     achievements: ["12 Patents Filed", "Tech Innovator Award 2021"],
   },
@@ -56,7 +56,7 @@ const teamMembers = [
     bio: "Sunita oversees our manufacturing operations with precision and efficiency. Her lean manufacturing initiatives have reduced waste by 40% while improving output quality.",
     linkedin: "#",
     twitter: "#",
-    email: "sunita@lockshop.com",
+    email: "sunita@GuideLock.com",
     experience: "18+ years",
     achievements: ["Operations Excellence Award", "ISO Lead Auditor"],
   },
@@ -67,7 +67,7 @@ const teamMembers = [
     bio: "Vikram has built our nationwide dealer network from the ground up. His relationship-building skills and market insights have been crucial to our pan-India presence.",
     linkedin: "#",
     twitter: "#",
-    email: "vikram@lockshop.com",
+    email: "vikram@GuideLock.com",
     experience: "15+ years",
     achievements: ["Sales Leader of the Decade", "500+ Dealer Network"],
   },
@@ -78,7 +78,7 @@ const teamMembers = [
     bio: "Meera ensures every lock meets our stringent quality standards. Her zero-defect philosophy has resulted in industry-leading customer satisfaction scores.",
     linkedin: "#",
     twitter: "#",
-    email: "meera@lockshop.com",
+    email: "meera@GuideLock.com",
     experience: "12+ years",
     achievements: ["Six Sigma Black Belt", "Quality Champion 2023"],
   },
@@ -106,7 +106,7 @@ export default function TeamSection() {
             Meet Our Leaders
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4">
-            The Team Behind <span className="text-[#C9A227]">LockShop</span>
+            The Team Behind <span className="text-[#C9A227]">GuideLock</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Experienced professionals dedicated to securing India, one lock at a time

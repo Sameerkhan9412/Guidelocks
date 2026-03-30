@@ -8,12 +8,12 @@ import { Calendar, Star, Award, Building, Users, Globe, Zap, Flag } from "lucide
 
 const timelineEvents = [
   {
-    year: "1998",
+    year: "1980",
     title: "The Beginning",
     description:
-      "LockShop was founded in a small workshop in Mumbai with just 5 employees and a vision to revolutionize security in India.",
+      "GuideLock was founded in a small workshop in Mumbai with just 5 employees and a vision to revolutionize security in India.",
     icon: Flag,
-    image: "/images/about/timeline/1998.jpg",
+    image: "/images/about/timeline/1980.jpg",
   },
   {
     year: "2003",
