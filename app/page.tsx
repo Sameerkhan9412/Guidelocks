@@ -13,6 +13,7 @@ import Category from "@/models/Category";
 import Lock from "@/models/Lock";
 import Review from "@/models/Review";
 import { connectDB } from "@/lib/db";
+import VideoShowcase from "@/components/home/Video";
 
 async function getHomeData() {
   await connectDB();
@@ -40,8 +41,10 @@ export default async function HomePage() {
       <Categories categories={categories} />
       <NewProducts products={locks} />
       <AboutUs />
+
       <PromoBanner />
       {/* <Brands /> */}
+      <VideoShowcase/>
       <Reviews reviews={reviews} />
     </main>
   );

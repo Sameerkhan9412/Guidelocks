@@ -129,6 +129,7 @@ export default function PromoBanner() {
             </div>
           </motion.div>
         </div>
+
       </div>
     </section>
   );

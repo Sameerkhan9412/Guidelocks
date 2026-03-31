@@ -180,7 +180,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right - Stats Cards */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
@@ -206,7 +206,8 @@ export default function HeroSection() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
+          <Image src={"/banners/banner1.jpeg"} width={100} height={100} className="h-auto object-cover rounded-3xl w-full" alt="img"/>
         </div>
       </motion.div>
 
