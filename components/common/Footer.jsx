@@ -3,12 +3,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { 
-  Lock, 
-  Shield, 
-  MapPin, 
-  Phone, 
-  Mail, 
+import {
+  Lock,
+  Shield,
+  MapPin,
+  Phone,
+  Mail,
   Clock,
   Facebook,
   Instagram,
@@ -16,9 +16,9 @@ import {
   Youtube,
   Linkedin,
   ArrowRight,
-  Send
+  Send,
 } from "lucide-react";
-import logo from "@/app/assets/Mini-Logo.png"
+import logo from "@/app/assets/Mini-Logo.png";
 import Image from "next/image";
 
 const footerLinks = {
@@ -47,8 +47,16 @@ const footerLinks = {
 
 const socialLinks = [
   // { icon: Facebook, href: "#", color: "#1877F2" },
-  { icon: Instagram, href: "https://www.instagram.com/vinayakinternational12?igsh=MWJwMXJncHBldm9lMg==", color: "#E4405F" },
-  { icon: Instagram, href: "https://www.instagram.com/vinayak.international12?igsh=Y2JiYmpjbWE5dW5x", color: "#E4405F" },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/vinayakinternational12?igsh=MWJwMXJncHBldm9lMg==",
+    color: "#E4405F",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/vinayak.international12?igsh=Y2JiYmpjbWE5dW5x",
+    color: "#E4405F",
+  },
   // { icon: Twitter, href: "#", color: "#1DA1F2" },
   // { icon: Youtube, href: "#", color: "#FF0000" },
   // { icon: Linkedin, href: "#", color: "#0A66C2" },
@@ -77,9 +85,12 @@ export default function Footer() {
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M0 20h40v1H0zM20 0v40h1V0z'/%3E%3C/g%3E%3C/svg%3E")`,
-            }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M0 20h40v1H0zM20 0v40h1V0z'/%3E%3C/g%3E%3C/svg%3E")`,
+              }}
+            />
           </div>
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -88,7 +99,8 @@ export default function Footer() {
                 Subscribe to Our Newsletter
               </h3>
               <p className="text-[#111111]/70 mt-2">
-                Get the latest updates, offers, and security tips delivered to your inbox.
+                Get the latest updates, offers, and security tips delivered to
+                your inbox.
               </p>
             </div>
             <div className="flex w-full md:w-auto">
@@ -113,7 +125,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-           <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group">
               {/* <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
@@ -126,25 +138,39 @@ export default function Footer() {
                   <Shield className="w-2.5 h-2.5 text-[#111111]" />
                 </div>
               </motion.div> */}
-              <Image src={logo} height={100} width={100} alt="logo" className="w-10"/> 
+              <Image
+                src={logo}
+                height={100}
+                width={100}
+                alt="logo"
+                className="w-10"
+              />
               <div>
                 <h1 className="text-2xl font-bold text-white tracking-tight">
                   GUIDE<span className="text-[#C9A227]">LOCKS</span>
                 </h1>
-                <p className="text-xs text-gray-400 -mt-1">Security Solutions</p>
+                <p className="text-xs text-gray-400 -mt-1">
+                  Security Solutions
+                </p>
               </div>
             </Link>
-            <p className="text-gray-400 mb-6 max-w-sm mt-4
-            ">
-              India's leading manufacturer and supplier of premium quality locks 
-              and security solutions. Protecting homes and businesses since 1980.
+            <p
+              className="text-gray-400 mb-6 max-w-sm mt-4
+            "
+            >
+              India's leading manufacturer and supplier of premium quality locks
+              and security solutions. Protecting homes and businesses since
+              1980.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 text-[#C9A227]" />
-                <span>D-114/115,sector-1, UPSIDC,Industrial Area , Talanagri,Ramghat Road , Aligarh -202001, Uttar pradesh , India</span>
+                <span>
+                  D-114/115,sector-1, UPSIDC,Industrial Area , Talanagri,Ramghat
+                  Road , Aligarh -202001, Uttar pradesh , India
+                </span>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-[#C9A227]" />
@@ -257,11 +283,29 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="text-center pt-8 mt-8 border-t border-gray-800">
+        {/* Copyright */}
+        <div className="text-center pt-8 mt-8 border-t border-gray-800 space-y-3">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} GuideLock. All rights reserved. | 
-            <Link href="/privacy" className="hover:text-[#C9A227] ml-1">Privacy Policy</Link> | 
-            <Link href="/terms" className="hover:text-[#C9A227] ml-1">Terms of Service</Link>
+            © {new Date().getFullYear()} GuideLock. All rights reserved. |
+            <Link href="/privacy" className="hover:text-[#C9A227] ml-1">
+              Privacy Policy
+            </Link>
+            |
+            <Link href="/terms" className="hover:text-[#C9A227] ml-1">
+              Terms of Service
+            </Link>
+          </p>
+
+          <p className="text-gray-400 text-sm">
+            Designed & Developed by ❤️{" "}
+            <a
+              href="https://digimart360.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C9A227] font-semibold hover:underline"
+            >
+              Digimart 360
+            </a>
           </p>
         </div>
       </div>

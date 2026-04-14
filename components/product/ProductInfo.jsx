@@ -310,7 +310,7 @@ export default function ProductInfo({ product, isWishlisted, onToggleWishlist })
             </div>
             <div>
               <p className="text-xs text-gray-500">Email us at</p>
-              <p className="font-semibold">info@GuideLock.com</p>
+              <p className="font-semibold">info@vinayakexports.com</p>
             </div>
           </a>
         </div>

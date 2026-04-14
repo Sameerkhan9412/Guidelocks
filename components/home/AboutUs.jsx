@@ -49,7 +49,7 @@ export default function AboutUs() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid gap-16 items-center">
           {/* Left - Images */}
           {/*<motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -118,7 +118,7 @@ export default function AboutUs() {
             /> */}
           {/* </motion.div> */}
 
-          <Image src={leftImg} width={100} height={100} alt="left img" className="w-full h-full object-cover"/>
+          {/* <Image src={leftImg} width={100} height={100} alt="left img" className="w-full h-full object-cover"/> */}
 
           {/* Right - Content */}
           <motion.div
