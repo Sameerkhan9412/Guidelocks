@@ -19,9 +19,7 @@ export default function CategorySidebar({
   categories,
   subCategories,
   selectedCategory,
-  selectedSubCategory,
   onCategoryChange,
-  onSubCategoryChange,
   productCounts,
 }) {
   const [expandedCategories, setExpandedCategories] = useState([selectedCategory]);
@@ -35,20 +33,6 @@ export default function CategorySidebar({
     ).length;
   };
 
-  // Get product count for a subcategory
-  const getSubCategoryProductCount = (subCategoryId) => {
-    return productCounts.filter(
-      (p) =>
-        p.subcategory?._id === subCategoryId || p.subcategory === subCategoryId
-    ).length;
-  };
-
-  // Get subcategories for a category
-  const getSubCategories = (categoryId) => {
-    return subCategories.filter(
-      (sub) => sub.category?._id === categoryId || sub.category === categoryId
-    );
-  };
 
   // Toggle category expansion
   const toggleCategory = (categoryId) => {
@@ -144,10 +128,8 @@ export default function CategorySidebar({
         {/* Category Items */}
         <div className="space-y-2">
           {filteredCategories.map((category, index) => {
-            const categorySubCategories = getSubCategories(category._id);
             const isExpanded = expandedCategories.includes(category._id);
             const isSelected = selectedCategory === category._id;
-            const hasSubCategories = categorySubCategories.length > 0;
 
             return (
               <motion.div
@@ -204,86 +186,9 @@ export default function CategorySidebar({
                         {getCategoryProductCount(category._id)} products
                       </p>
                     </div>
-
-                    {/* Selected Check */}
-                    {isSelected && !hasSubCategories && (
-                      <Check className="w-5 h-5 text-[#C9A227]" />
-                    )}
                   </motion.button>
 
-                  {/* Expand Button */}
-                  {hasSubCategories && (
-                    <button
-                      onClick={() => toggleCategory(category._id)}
-                      className={`p-3 hover:bg-[#F5F5F5] rounded-r-xl transition-colors ${
-                        isExpanded ? "text-[#C9A227]" : "text-gray-400"
-                      }`}
-                    >
-                      <motion.div
-                        animate={{ rotate: isExpanded ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ChevronDown className="w-5 h-5" />
-                      </motion.div>
-                    </button>
-                  )}
                 </div>
-
-                {/* SubCategories */}
-                <AnimatePresence>
-                  {hasSubCategories && isExpanded && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="ml-6 mt-1 pl-4 border-l-2 border-[#C9A227]/30"
-                    >
-                      {categorySubCategories.map((subCategory, subIndex) => {
-                        const isSubSelected =
-                          selectedSubCategory === subCategory._id;
-
-                        return (
-                          <motion.button
-                            key={subCategory._id}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: subIndex * 0.05 }}
-                            whileHover={{ x: 4 }}
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => {
-                              onCategoryChange(category._id);
-                              onSubCategoryChange(subCategory._id);
-                            }}
-                            className={`w-full flex items-center gap-3 p-2.5 rounded-lg transition-all ${
-                              isSubSelected
-                                ? "bg-[#C9A227] text-[#111111]"
-                                : "hover:bg-[#F5F5F5] text-gray-600"
-                            }`}
-                          >
-                            <ChevronRight
-                              className={`w-4 h-4 ${
-                                isSubSelected ? "text-[#111111]" : "text-gray-400"
-                              }`}
-                            />
-                            <span className="flex-1 text-left text-sm font-medium truncate">
-                              {subCategory.name}
-                            </span>
-                            <span
-                              className={`text-xs px-2 py-0.5 rounded-full ${
-                                isSubSelected
-                                  ? "bg-[#111111]/20 text-[#111111]"
-                                  : "bg-gray-100 text-gray-500"
-                              }`}
-                            >
-                              {getSubCategoryProductCount(subCategory._id)}
-                            </span>
-                          </motion.button>
-                        );
-                      })}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </motion.div>
             );
           })}

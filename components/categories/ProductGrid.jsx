@@ -245,55 +245,6 @@ export default function ProductGrid({ products, viewMode }) {
 
           {/* Content */}
           <div className="flex-1 p-6 flex flex-col">
-            <div className="flex-1">
-              {/* Subcategory */}
-              {product.subcategory?.name && (
-                <span className="text-xs text-[#C9A227] font-medium uppercase tracking-wider">
-                  {product.subcategory.name}
-                </span>
-              )}
-
-              {/* Product Name */}
-              <h3 className="text-xl font-bold text-[#111111] mt-1 group-hover:text-[#C9A227] transition-colors">
-                {product.name}
-              </h3>
-
-              {/* Rating */}
-              <div className="flex items-center gap-1 mt-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-4 h-4 ${
-                      i < 4 ? "fill-[#C9A227] text-[#C9A227]" : "text-gray-300"
-                    }`}
-                  />
-                ))}
-                <span className="text-sm text-gray-500 ml-1">(4.8) • 120 reviews</span>
-              </div>
-
-              {/* Description */}
-              {product.description && (
-                <p className="text-gray-600 mt-3 line-clamp-2">
-                  {product.description}
-                </p>
-              )}
-
-              {/* Features */}
-              {product.features?.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {product.features.slice(0, 4).map((feature, i) => (
-                    <span
-                      key={i}
-                      className="flex items-center gap-1 text-sm text-gray-600"
-                    >
-                      <Check className="w-4 h-4 text-[#C9A227]" />
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-
             {/* Actions */}
             <div className="flex items-center gap-4 mt-6 pt-4 border-t border-gray-100">
               <motion.button

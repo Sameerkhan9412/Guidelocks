@@ -16,11 +16,8 @@ export default function MobileFilterDrawer({
   isOpen,
   onClose,
   categories,
-  subCategories,
   selectedCategory,
-  selectedSubCategory,
   onCategoryChange,
-  onSubCategoryChange,
   onClearFilters,
   productCounts,
   resultsCount,
@@ -33,13 +30,6 @@ export default function MobileFilterDrawer({
     ).length;
   };
 
-  // Get product count for a subcategory
-  const getSubCategoryProductCount = (subCategoryId) => {
-    return productCounts.filter(
-      (p) =>
-        p.subcategory?._id === subCategoryId || p.subcategory === subCategoryId
-    ).length;
-  };
 
   // Handle category click
   const handleCategoryClick = (categoryId) => {
@@ -203,75 +193,6 @@ export default function MobileFilterDrawer({
                 })}
               </div>
 
-              {/* Subcategories */}
-              {subCategories.length > 0 && (
-                <div className="mt-6">
-                  <h4 className="font-semibold text-gray-800 mb-4">
-                    Subcategories
-                  </h4>
-                  <div className="space-y-2">
-                    {/* All Subcategories */}
-                    <motion.button
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => onSubCategoryChange("all")}
-                      className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all ${
-                        selectedSubCategory === "all"
-                          ? "bg-[#C9A227] text-[#111111]"
-                          : "bg-[#F5F5F5] hover:bg-gray-200 text-gray-700"
-                      }`}
-                    >
-                      <ChevronRight
-                        className={`w-4 h-4 ${
-                          selectedSubCategory === "all"
-                            ? "text-[#111111]"
-                            : "text-gray-400"
-                        }`}
-                      />
-                      <span className="flex-1 text-left font-medium">
-                        All Subcategories
-                      </span>
-                      {selectedSubCategory === "all" && (
-                        <Check className="w-4 h-4 text-[#111111]" />
-                      )}
-                    </motion.button>
-
-                    {subCategories.map((subCategory) => {
-                      const isSelected = selectedSubCategory === subCategory._id;
-
-                      return (
-                        <motion.button
-                          key={subCategory._id}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => onSubCategoryChange(subCategory._id)}
-                          className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all ${
-                            isSelected
-                              ? "bg-[#C9A227] text-[#111111]"
-                              : "bg-[#F5F5F5] hover:bg-gray-200 text-gray-700"
-                          }`}
-                        >
-                          <ChevronRight
-                            className={`w-4 h-4 ${
-                              isSelected ? "text-[#111111]" : "text-gray-400"
-                            }`}
-                          />
-                          <span className="flex-1 text-left font-medium">
-                            {subCategory.name}
-                          </span>
-                          <span
-                            className={`text-xs px-2 py-0.5 rounded-full ${
-                              isSelected
-                                ? "bg-[#111111]/20 text-[#111111]"
-                                : "bg-gray-200 text-gray-500"
-                            }`}
-                          >
-                            {getSubCategoryProductCount(subCategory._id)}
-                          </span>
-                        </motion.button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Footer */}

@@ -31,7 +31,6 @@ const sortOptions = [
 
 export default function CategoriesPageClient({
   categories,
-  subCategories,
   allProducts,
 }) {
   const router = useRouter();
@@ -41,24 +40,11 @@ export default function CategoriesPageClient({
   const [selectedCategory, setSelectedCategory] = useState(
     searchParams.get("category") || "all"
   );
-  const [selectedSubCategory, setSelectedSubCategory] = useState(
-    searchParams.get("subcategory") || "all"
-  );
   const [sortBy, setSortBy] = useState("newest");
   const [viewMode, setViewMode] = useState("grid");
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  // Get subcategories for selected category
-  const filteredSubCategories = useMemo(() => {
-    if (selectedCategory === "all") return [];
-    return subCategories.filter(
-      (sub) =>
-        sub.category?._id === selectedCategory ||
-        sub.category === selectedCategory
-    );
-  }, [selectedCategory, subCategories]);
 
   // Filter and sort products
   const filteredProducts = useMemo(() => {
@@ -72,15 +58,6 @@ export default function CategoriesPageClient({
         (product) =>
           product.category?._id === selectedCategory ||
           product.category === selectedCategory
-      );
-    }
-
-    // Filter by subcategory
-    if (selectedSubCategory !== "all") {
-      result = result.filter(
-        (product) =>
-          product.subcategory?._id === selectedSubCategory ||
-          product.subcategory === selectedSubCategory
       );
     }
 
@@ -113,32 +90,16 @@ export default function CategoriesPageClient({
 
     setTimeout(() => setIsLoading(false), 300);
     return result;
-  }, [selectedCategory, selectedSubCategory, searchQuery, sortBy, allProducts]);
-
-  // Update URL params
-  useEffect(() => {
-    const params = new URLSearchParams();
-    if (selectedCategory !== "all") params.set("category", selectedCategory);
-    if (selectedSubCategory !== "all")
-      params.set("subcategory", selectedSubCategory);
-
-    const newUrl = params.toString()
-      ? `/categories?${params.toString()}`
-      : "/categories";
-
-    router.push(newUrl, { scroll: false });
-  }, [selectedCategory, selectedSubCategory, router]);
+  }, [selectedCategory, searchQuery, sortBy, allProducts]);
 
   // Handle category change
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId);
-    setSelectedSubCategory("all");
   };
 
   // Clear all filters
   const clearFilters = () => {
     setSelectedCategory("all");
-    setSelectedSubCategory("all");
     setSearchQuery("");
     setSortBy("newest");
   };
@@ -150,17 +111,9 @@ export default function CategoriesPageClient({
     return cat?.name || "All Products";
   };
 
-  // Get subcategory name
-  const getSubCategoryName = (id) => {
-    if (id === "all") return "";
-    const subCat = subCategories.find((s) => s._id === id);
-    return subCat?.name || "";
-  };
-
   // Active filters count
   const activeFiltersCount = [
     selectedCategory !== "all",
-    selectedSubCategory !== "all",
     searchQuery !== "",
   ].filter(Boolean).length;
 
@@ -176,11 +129,8 @@ export default function CategoriesPageClient({
               <div className="sticky top-24">
                 <CategorySidebar
                   categories={categories}
-                  subCategories={subCategories}
                   selectedCategory={selectedCategory}
-                  selectedSubCategory={selectedSubCategory}
                   onCategoryChange={handleCategoryChange}
-                  onSubCategoryChange={setSelectedSubCategory}
                   productCounts={allProducts}
                 />
               </div>
@@ -307,18 +257,6 @@ export default function CategoriesPageClient({
                         </motion.button>
                       )}
 
-                      {selectedSubCategory !== "all" && (
-                        <motion.button
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.8 }}
-                          onClick={() => setSelectedSubCategory("all")}
-                          className="flex items-center gap-1 bg-[#C9A227]/10 text-[#C9A227] px-3 py-1.5 rounded-full text-sm font-medium hover:bg-[#C9A227]/20 transition-colors"
-                        >
-                          Sub: {getSubCategoryName(selectedSubCategory)}
-                          <X className="w-3 h-3" />
-                        </motion.button>
-                      )}
 
                       {searchQuery && (
                         <motion.button
@@ -421,11 +359,8 @@ export default function CategoriesPageClient({
         isOpen={isMobileFilterOpen}
         onClose={() => setIsMobileFilterOpen(false)}
         categories={categories}
-        subCategories={filteredSubCategories}
         selectedCategory={selectedCategory}
-        selectedSubCategory={selectedSubCategory}
         onCategoryChange={handleCategoryChange}
-        onSubCategoryChange={setSelectedSubCategory}
         onClearFilters={clearFilters}
         productCounts={allProducts}
         resultsCount={filteredProducts.length}

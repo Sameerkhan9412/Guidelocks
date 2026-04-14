@@ -13,7 +13,6 @@ async function getProductData(slug) {
 
   const product = await Lock.findOne({ slug })
     .populate("category")
-    .populate("subcategory")
     .lean();
 
   if (!product) {

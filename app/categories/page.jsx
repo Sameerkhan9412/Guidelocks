@@ -10,27 +10,24 @@ import CategoriesPageClient from "../../components/categories/CategoriesPageClie
 async function getCategoriesData() {
   await connectDB();
 
-  const [categories, subCategories, products] = await Promise.all([
+  const [categories, products] = await Promise.all([
     Category.find({}).sort({ name: 1 }).lean(),
-    SubCategory.find({}).populate("category").lean(),
-    Lock.find({}).populate("category").populate("subcategory").sort({ createdAt: -1 }).lean(),
+    Lock.find({}).populate("category").sort({ createdAt: -1 }).lean(),
   ]);
 
   return {
     categories: JSON.parse(JSON.stringify(categories)),
-    subCategories: JSON.parse(JSON.stringify(subCategories)),
     products: JSON.parse(JSON.stringify(products)),
   };
 }
 
 export default async function CategoriesPage() {
-  const { categories, subCategories, products } = await getCategoriesData();
+  const { categories, products } = await getCategoriesData();
 
   return (
     <Suspense fallback={<CategoriesLoading />}>
       <CategoriesPageClient
         categories={categories}
-        subCategories={subCategories}
         allProducts={products}
       />
     </Suspense>
