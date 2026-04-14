@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard,
   FolderKanban,
@@ -10,10 +10,16 @@ import {
   Star,
   ShieldCheck,
   ChevronRight,
+  LogOut,
 } from "lucide-react";
+import { useState } from "react";
 
 export default function Sidebar() {
   const pathname = usePathname();
+    const [loading, setLoading] = useState(false);
+
+      const router = useRouter();
+  
 
   const menu = [
     {
@@ -41,7 +47,25 @@ export default function Sidebar() {
       href: "/admin/reviews",
       icon: Star,
     },
+
   ];
+
+  const logout = async () => {
+    try {
+      setLoading(true);
+
+      await fetch("/api/admin/logout", {
+        method: "POST",
+      });
+
+      router.push("/admin/login");
+      router.refresh();
+    } catch (error) {
+      console.log("Logout failed", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <aside className="h-screen w-72 bg-gradient-to-b from-zinc-950 via-black to-zinc-900 text-white border-r border-white/10 shadow-2xl sticky top-0">
@@ -119,6 +143,14 @@ export default function Sidebar() {
           })}
 
         </nav>
+         <button
+            onClick={logout}
+            disabled={loading}
+            className="h-11 px-4 md:px-5 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition flex items-center gap-2 disabled:opacity-70 mt-4"
+          >
+            <LogOut size={16} />
+            {loading ? "Logging out..." : "Logout"}
+          </button>
 
       </div>
 
