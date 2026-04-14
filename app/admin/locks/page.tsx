@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 export default function LocksPage() {
   const [locks, setLocks] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
-  const [subcategories, setSubcategories] = useState<any[]>([]);
 
   const [editingId, setEditingId] = useState<string | null>(null);
 
@@ -14,7 +13,6 @@ export default function LocksPage() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [subcategory, setSubcategory] = useState("");
 
   const [features, setFeatures] = useState<string[]>([]);
   const [newFeature, setNewFeature] = useState("");
@@ -33,12 +31,9 @@ export default function LocksPage() {
     const catRes = await fetch("/api/categories");
     const catData = await catRes.json();
 
-    const subRes = await fetch("/api/subcategories");
-    const subData = await subRes.json();
 
     setLocks(lockData.data);
     setCategories(catData.data);
-    setSubcategories(subData.data);
   };
 
   const handleImages = (files: FileList | null) => {
@@ -76,7 +71,6 @@ export default function LocksPage() {
     setName("");
     setDescription("");
     setCategory("");
-    setSubcategory("");
     setFeatures([]);
     setImages([]);
     setPreviewImages([]);
@@ -88,7 +82,6 @@ export default function LocksPage() {
     formData.append("name", name);
     formData.append("description", description);
     formData.append("category", category);
-    formData.append("subcategory", subcategory);
 
     formData.append("features", JSON.stringify(features));
 
@@ -119,7 +112,6 @@ export default function LocksPage() {
     setName(lock.name);
     setDescription(lock.description);
     setCategory(lock.category?._id);
-    setSubcategory(lock.subcategory?._id);
 
     setFeatures(lock.features || []);
     setPreviewImages(lock.images || []);
@@ -169,20 +161,6 @@ export default function LocksPage() {
             {categories.map((cat) => (
               <option key={cat._id} value={cat._id}>
                 {cat.name}
-              </option>
-            ))}
-          </select>
-
-          <select
-            className="border p-2 w-full"
-            value={subcategory}
-            onChange={(e) => setSubcategory(e.target.value)}
-          >
-            <option>Select SubCategory</option>
-
-            {subcategories.map((sub) => (
-              <option key={sub._id} value={sub._id}>
-                {sub.name}
               </option>
             ))}
           </select>
@@ -295,11 +273,6 @@ export default function LocksPage() {
             <p className="text-sm text-gray-500">
               Category: {lock.category?.name}
             </p>
-
-            <p className="text-sm text-gray-500">
-              Sub: {lock.subcategory?.name}
-            </p>
-
             <div className="flex gap-4 mt-3">
               <button onClick={() => editLock(lock)} className="text-blue-500">
                 Edit
@@ -314,7 +287,7 @@ export default function LocksPage() {
             </div>
           </div>
         ))}
-      </div>
+      </div>  
     </div>
   );
 }

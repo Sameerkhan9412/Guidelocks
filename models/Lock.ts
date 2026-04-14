@@ -11,11 +11,6 @@ const LockSchema = new Schema(
     ref: "Category"
   },
 
-  subcategory: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "SubCategory"
-  },
-
   description: String,
 
   features: [String],

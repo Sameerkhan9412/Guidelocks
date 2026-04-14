@@ -15,7 +15,7 @@ export default function AdminLayout({
 
       <div className="flex-1">
 
-        <Topbar />
+        {/* <Topbar /> */}
 
         <main className="p-6">
           {children}

@@ -1,40 +1,34 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import Category from "@/models/Category";
-import fs from "fs";
-import path from "path";
+import cloudinary from "@/lib/cloudinary";
+
 export const runtime = "nodejs";
 
 export async function GET() {
-
   await connectDB();
 
   const categories = await Category.find().sort({ createdAt: -1 });
 
   return NextResponse.json({
     success: true,
-    data: categories
+    data: categories,
   });
-
 }
 
-
 export async function POST(req: Request) {
-
   try {
-
     await connectDB();
 
     const formData = await req.formData();
 
     const name = formData.get("name") as string;
     const image = formData.get("image") as File | null;
-    console.log("path,,",image)
 
     if (!name) {
       return NextResponse.json({
         success: false,
-        message: "Category name required"
+        message: "Category name required",
       });
     }
 
@@ -43,50 +37,37 @@ export async function POST(req: Request) {
     let imageUrl = "";
 
     if (image && image.size > 0) {
-
       const bytes = await image.arrayBuffer();
       const buffer = Buffer.from(bytes);
 
-      const uploadDir = path.join(
-        process.cwd(),
-        "public/uploads/categories"
-      );
+      const base64 = buffer.toString("base64");
 
-      // create folder if missing
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
+      const dataURI = `data:${image.type};base64,${base64}`;
 
-      const fileName = Date.now() + "-" + image.name;
+      const uploadRes = await cloudinary.uploader.upload(dataURI, {
+        folder: "categories",
+      });
 
-      const uploadPath = path.join(uploadDir, fileName);
-
-      fs.writeFileSync(uploadPath, buffer);
-
-      imageUrl = `/uploads/categories/${fileName}`;
+      imageUrl = uploadRes.secure_url;
+      // console.log("upll",uploadRes)
     }
-    console.log("imagurlee",imageUrl)
-
+    // console.log("upll",imageUrl)
     const category = await Category.create({
       name,
       slug,
-      image:imageUrl
+      image: imageUrl,
     });
 
     return NextResponse.json({
       success: true,
-      data: category
+      data: category,
     });
-
   } catch (error) {
-
     console.error("CATEGORY ERROR:", error);
 
     return NextResponse.json({
       success: false,
-      message: "Failed to create category"
+      message: "Failed to create category",
     });
-
   }
-
 }
