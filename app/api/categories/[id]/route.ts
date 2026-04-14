@@ -72,3 +72,51 @@ export async function PUT(
   }
 
 }
+
+export async function DELETE(
+  req: Request,
+  context: { params: Promise<{ id: string }> }
+) {
+  try {
+    await connectDB();
+
+    const { id } = await context.params;
+
+    const category = await Category.findById(id);
+
+    if (!category) {
+      return NextResponse.json({
+        success: false,
+        message: "Category not found",
+      });
+    }
+
+    // delete image from folder if exists
+    if (category.image) {
+      const imagePath = path.join(
+        process.cwd(),
+        "public",
+        category.image
+      );
+
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      }
+    }
+
+    await Category.findByIdAndDelete(id);
+
+    return NextResponse.json({
+      success: true,
+      message: "Category deleted successfully",
+    });
+
+  } catch (error) {
+    console.log(error);
+
+    return NextResponse.json({
+      success: false,
+      message: "Failed to delete category",
+    });
+  }
+}
