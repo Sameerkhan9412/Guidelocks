@@ -82,7 +82,7 @@ export default function CTABanner() {
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Thank You for{" "}
-            <span className="text-[#C9A227]">Choosing GuideLock</span>
+            <span className="text-[#C9A227]">Choosing Vinayak International</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
             We're committed to providing you with the best security solutions. 

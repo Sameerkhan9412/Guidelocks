@@ -57,16 +57,16 @@ export async function generateMetadata({ params }) {
 
   if (!product) {
     return {
-      title: "Product Not Found | GuideLock",
+      title: "Product Not Found | Vinayak International",
       description: "The requested product could not be found.",
     };
   }
 
   return {
-    title: `${product.name} | GuideLock`,
+    title: `${product.name} | Vinayak International`,
     description:
       product.description ||
-      `Premium ${product.name} - High quality security solution from GuideLock`,
+      `Premium ${product.name} - High quality security solution from Vinayak International`,
     openGraph: {
       title: product.name,
       description: product.description,

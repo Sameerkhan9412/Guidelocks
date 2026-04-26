@@ -189,7 +189,7 @@ export default function CategoriesPage() {
         </div>
 
         <div className="h-11 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-semibold flex items-center justify-center">
-          GuideLock CMS
+          Vinayak International CMS
         </div>
 
       </div>

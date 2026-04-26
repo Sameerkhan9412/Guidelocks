@@ -11,7 +11,7 @@ const timelineEvents = [
     year: "1980",
     title: "The Beginning",
     description:
-      "GuideLock was founded in a small workshop in Mumbai with just 5 employees and a vision to revolutionize security in India.",
+      "Vinayak International was founded in a small workshop in Mumbai with just 5 employees and a vision to revolutionize security in India.",
     icon: Flag,
     image: "/images/about/timeline/1980.jpg",
   },

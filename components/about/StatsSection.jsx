@@ -1,18 +1,8 @@
-// components/about/StatsSection.jsx
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
-import {
-  Users,
-  ShoppingBag,
-  Building,
-  Award,
-  MapPin,
-  Globe,
-  TrendingUp,
-  Heart,
-} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { Users, Building, MapPin, Globe, Heart, ShieldCheck } from "lucide-react";
 
 const stats = [
   {
@@ -21,13 +11,6 @@ const stats = [
     suffix: "+",
     label: "Happy Customers",
     description: "Families & businesses secured",
-  },
-  {
-    icon: ShoppingBag,
-    value: 100,
-    suffix: "+",
-    label: "Product Range",
-    description: "Different lock varieties",
   },
   {
     icon: Building,
@@ -44,13 +27,6 @@ const stats = [
     description: "Pan-India presence",
   },
   {
-    icon: Award,
-    value: 15,
-    suffix: "+",
-    label: "Awards",
-    description: "Industry recognition",
-  },
-  {
     icon: Globe,
     value: 10,
     suffix: "+",
@@ -59,120 +35,185 @@ const stats = [
   },
 ];
 
-function Counter({ value, suffix }) {
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: "easeOut",
+    },
+  },
+};
+
+function Counter({ value, suffix = "" }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, amount: 0.6 });
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (isInView) {
-      const duration = 2000;
-      const steps = 60;
-      const increment = value / steps;
-      let current = 0;
-      
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= value) {
-          setCount(value);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(current));
-        }
-      }, duration / steps);
+    if (!isInView) return;
 
-      return () => clearInterval(timer);
+    if (shouldReduceMotion) {
+      setCount(value);
+      return;
     }
-  }, [isInView, value]);
+
+    let start = null;
+    let animationFrame;
+    const duration = 1800;
+
+    const animate = (timestamp) => {
+      if (!start) start = timestamp;
+
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const currentValue = Math.floor(value * eased);
+
+      setCount(currentValue);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(value);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [isInView, value, shouldReduceMotion]);
 
   return (
     <span ref={ref}>
-      {count.toLocaleString()}{suffix}
+      {count.toLocaleString()}
+      {suffix}
     </span>
   );
 }
 
 export default function StatsSection() {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-
   return (
-    <section
-      ref={containerRef}
-      className="py-20 bg-[#111111] relative overflow-hidden"
-    >
+    <section className="relative overflow-hidden bg-[#111111] py-14 sm:py-16 lg:py-24">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div aria-hidden className="absolute inset-0 opacity-[0.05]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, #C9A227 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
+            backgroundImage:
+              "radial-gradient(circle at 2px 2px, #C9A227 1px, transparent 0)",
+            backgroundSize: "36px 36px",
           }}
         />
       </div>
 
       {/* Glowing Orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#C9A227]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#C9A227]/10 rounded-full blur-3xl" />
+      <div
+        aria-hidden
+        className="absolute -top-20 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[#C9A227]/10 blur-3xl sm:h-80 sm:w-80"
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-0 left-0 h-52 w-52 rounded-full bg-[#C9A227]/10 blur-3xl sm:h-72 sm:w-72"
+      />
+      <div
+        aria-hidden
+        className="absolute right-0 top-1/3 h-52 w-52 rounded-full bg-white/5 blur-3xl sm:h-72 sm:w-72"
+      />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-10 max-w-3xl text-center sm:mb-14 lg:mb-16"
         >
-          <span className="inline-block bg-[#C9A227]/10 text-[#C9A227] px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#C9A227]/20 bg-[#C9A227]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#C9A227] sm:text-sm">
+            <ShieldCheck className="h-4 w-4" />
             Our Impact
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+
+          <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
             Numbers That <span className="text-[#C9A227]">Speak</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Over 25 years of dedication to security excellence, measured in milestones that matter
+
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-gray-400 sm:text-base lg:text-lg">
+            Over 25 years of dedication to security excellence, measured in
+            milestones that matter across India and beyond.
           </p>
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4"
+        >
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10, transition: { duration: 0.2 } }}
+              variants={itemVariants}
+              whileHover={{ y: -6 }}
               className="group"
             >
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:border-[#C9A227]/50 hover:bg-white/10 transition-all duration-300 h-full">
-                {/* Icon */}
-                <div className="w-14 h-14 mx-auto bg-gradient-to-br from-[#C9A227] to-[#A68520] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-[#C9A227]/20">
-                  <stat.icon className="w-7 h-7 text-white" />
-                </div>
+              <div className="relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md transition-all duration-300 hover:border-[#C9A227]/40 hover:bg-white/[0.08] sm:p-6 lg:p-7">
+                {/* Hover Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#C9A227]/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                {/* Value */}
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  <Counter value={stat.value} suffix={stat.suffix} />
-                </div>
+                {/* Decorative Dot */}
+                <div className="absolute right-5 top-5 h-2.5 w-2.5 rounded-full bg-[#C9A227] shadow-[0_0_16px_rgba(201,162,39,0.8)]" />
 
-                {/* Label */}
-                <h4 className="text-white font-semibold mb-1">{stat.label}</h4>
-                <p className="text-gray-500 text-sm">{stat.description}</p>
+                <div className="relative z-10 flex h-full flex-col">
+                  {/* Icon */}
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#C9A227] to-[#A68520] shadow-lg shadow-[#C9A227]/20 sm:h-14 sm:w-14">
+                    <stat.icon className="h-6 w-6 text-white sm:h-7 sm:w-7" />
+                  </div>
+
+                  {/* Value */}
+                  <div className="mb-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    <Counter value={stat.value} suffix={stat.suffix} />
+                  </div>
+
+                  {/* Label */}
+                  <h4 className="text-base font-semibold text-white sm:text-lg">
+                    {stat.label}
+                  </h4>
+
+                  {/* Description */}
+                  <p className="mt-2 text-sm leading-6 text-gray-400">
+                    {stat.description}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom Tagline */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.8 }}
-          className="text-center mt-16"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-10 sm:mt-12 lg:mt-16"
         >
-          <div className="inline-flex items-center gap-2 text-gray-400">
-            <Heart className="w-5 h-5 text-red-500 fill-current" />
+          <div className="mx-auto flex max-w-3xl flex-col items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 text-center text-sm text-gray-300 sm:flex-row sm:gap-4 sm:px-6 sm:text-base">
+            <Heart className="h-5 w-5 fill-red-500 text-red-500" />
             <span>Trusted by families across India since 1980</span>
           </div>
         </motion.div>

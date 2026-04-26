@@ -286,7 +286,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-center pt-8 mt-8 border-t border-gray-800 space-y-3">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} GuideLock. All rights reserved. |
+            © {new Date().getFullYear()} Vinayak International. All rights reserved. |
             <Link href="/privacy" className="hover:text-[#C9A227] ml-1">
               Privacy Policy
             </Link>

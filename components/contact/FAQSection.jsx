@@ -13,7 +13,7 @@ import {
 
 const faqs = [
   {
-    question: "How can I become a GuideLock dealer?",
+    question: "How can I become a Vinayak International dealer?",
     answer:
       "To become a dealer, fill out the contact form selecting 'Become a Dealer' as the inquiry type, or call our sales team directly. We'll guide you through the application process, which includes verification and a minimum order requirement.",
   },

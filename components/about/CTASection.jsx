@@ -156,7 +156,7 @@ export default function CTASection() {
                 
                 {/* Overlay Button */}
                 <a
-                  href="https://maps.google.com/?q=GuideLock+"
+                  href="https://maps.google.com/?q=Vinayak International+"
                   target="_blank"
                   className="absolute inset-0"
                 />
@@ -165,7 +165,7 @@ export default function CTASection() {
               {/* Address */}
               <div className="p-6">
                 <h4 className="text-white font-bold text-lg mb-2">
-                  GuideLock Headquarters
+                  Vinayak International Headquarters
                 </h4>
                 <p className="text-gray-400">
                   D-114/115,sector-1, UPSIDC,Industrial Area, Talanagri,Ramghat Road 

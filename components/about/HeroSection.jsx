@@ -28,7 +28,6 @@ export default function HeroSection() {
   const stats = [
     { icon: Clock, value: "25+", label: "Years Experience" },
     { icon: Users, value: "50,000+", label: "Happy Customers" },
-    { icon: Shield, value: "100+", label: "Product Range" },
     { icon: Award, value: "15+", label: "Industry Awards" },
   ];
 
@@ -41,7 +40,7 @@ export default function HeroSection() {
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
         <Image
           src="/images/about/hero-bg.jpg"
-          alt="GuideLock Factory"
+          alt="Vinayak International Factory"
           fill
           className="object-cover"
           priority
@@ -149,7 +148,7 @@ export default function HeroSection() {
               transition={{ delay: 0.4 }}
               className="text-xl text-gray-300 max-w-xl leading-relaxed"
             >
-              Vinayak Export is a trusted name in the manufacturing and export of premium-quality door handles and mortise locks, delivering strength, security, and modern design to customers worldwide. With years of industry experience, we specialize in crafting durable hardware solutions that combine functionality with elegant aesthetics.
+              Vinayak International is a trusted name in the manufacturing and export of premium-quality door handles and mortise locks, delivering strength, security, and modern design to customers worldwide. With years of industry experience, we specialize in crafting durable hardware solutions that combine functionality with elegant aesthetics.
             </motion.p>
 
             {/* CTA Buttons */}

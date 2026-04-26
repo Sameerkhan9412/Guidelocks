@@ -144,18 +144,18 @@ export default function AboutUs() {
             </div>
 
             <p className="text-gray-400 text-lg leading-relaxed">
-             Vinayak Export is a trusted name in the manufacturing and export of premium-quality door handles and mortise locks, delivering strength, security, and modern design to customers worldwide. With years of industry experience, we specialize in crafting durable hardware solutions that combine functionality with elegant aesthetics.
+             Vinayak International is a trusted name in the manufacturing and export of premium-quality door handles and mortise locks, delivering strength, security, and modern design to customers worldwide. With years of industry experience, we specialize in crafting durable hardware solutions that combine functionality with elegant aesthetics.
 
             </p>
 
             <p className="text-gray-400 leading-relaxed">
-              As a leading manufacturer, Vinayak Export is committed to quality excellence, using advanced production technology and high-grade raw materials to ensure long-lasting performance. Our wide range of products includes designer door handles, mortise locks, and architectural hardware suitable for residential, commercial, and industrial applications.
+              As a leading manufacturer, Vinayak International is committed to quality excellence, using advanced production technology and high-grade raw materials to ensure long-lasting performance. Our wide range of products includes designer door handles, mortise locks, and architectural hardware suitable for residential, commercial, and industrial applications.
             </p>
             <p className="text-gray-400 leading-relaxed">
               We focus on innovation, precision engineering, and strict quality control to meet international standards. Our products are highly demanded in domestic and global markets due to their superior finish, corrosion resistance, and robust construction.
             </p>
             <p className="text-gray-400 leading-relaxed">
-              At Vinayak Export, customer satisfaction is our top priority. We provide customized solutions, competitive pricing, and timely delivery, making us a reliable partner for distributors, wholesalers, and builders.
+              At Vinayak International, customer satisfaction is our top priority. We provide customized solutions, competitive pricing, and timely delivery, making us a reliable partner for distributors, wholesalers, and builders.
             </p>
 
             {/* Highlights Grid */}

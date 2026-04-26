@@ -160,7 +160,7 @@ export default function Sidebar() {
         <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
 
           <p className="text-sm font-semibold text-white">
-            GuideLock CMS
+            Vinayak International CMS
           </p>
 
           <p className="text-xs text-zinc-400 mt-1 leading-relaxed">

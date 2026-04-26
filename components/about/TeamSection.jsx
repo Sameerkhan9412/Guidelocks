@@ -20,7 +20,7 @@ const teamMembers = [
     name: "Rajesh Kumar",
     position: "Founder & Chairman",
     image: "/images/about/team/rajesh.jpg",
-    bio: "With over 30 years of experience in the security industry, Rajesh founded GuideLock with a vision to revolutionize security in India. His leadership and commitment to quality have made GuideLock a household name.",
+    bio: "With over 30 years of experience in the security industry, Rajesh founded Vinayak International with a vision to revolutionize security in India. His leadership and commitment to quality have made Vinayak International a household name.",
     linkedin: "#",
     twitter: "#",
     email: "rajesh@GuideLock.com",
@@ -31,7 +31,7 @@ const teamMembers = [
     name: "Priya Sharma",
     position: "CEO",
     image: "/images/about/team/priya.jpg",
-    bio: "Priya brings 20 years of strategic leadership to GuideLock. Her focus on innovation and market expansion has driven the company's growth by 300% in the last decade.",
+    bio: "Priya brings 20 years of strategic leadership to Vinayak International. Her focus on innovation and market expansion has driven the company's growth by 300% in the last decade.",
     linkedin: "#",
     twitter: "#",
     email: "priya@GuideLock.com",
@@ -42,7 +42,7 @@ const teamMembers = [
     name: "Amit Patel",
     position: "CTO",
     image: "/images/about/team/amit.jpg",
-    bio: "Leading our R&D division, Amit is the mastermind behind our smart lock innovations. His patents and technological contributions have positioned GuideLock at the forefront of security technology.",
+    bio: "Leading our R&D division, Amit is the mastermind behind our smart lock innovations. His patents and technological contributions have positioned Vinayak International at the forefront of security technology.",
     linkedin: "#",
     twitter: "#",
     email: "amit@GuideLock.com",
@@ -106,7 +106,7 @@ export default function TeamSection() {
             Meet Our Leaders
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4">
-            The Team Behind <span className="text-[#C9A227]">GuideLock</span>
+            The Team Behind <span className="text-[#C9A227]">Vinayak International</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Experienced professionals dedicated to securing India, one lock at a time

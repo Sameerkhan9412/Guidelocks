@@ -72,7 +72,7 @@ export default function Dashboard() {
             </h1>
 
             <p className="text-sm text-zinc-500 mt-1">
-              Welcome back to GuideLock control panel
+              Welcome back to Vinayak International control panel
             </p>
           </div>
 
@@ -183,7 +183,7 @@ export default function Dashboard() {
       <div className="mt-10 rounded-3xl bg-gradient-to-r from-black via-zinc-900 to-black text-white p-6 lg:p-8">
 
         <h3 className="text-2xl font-bold">
-          GuideLock CMS Panel
+          Vinayak International CMS Panel
         </h3>
 
         <p className="text-zinc-300 mt-2 max-w-2xl">

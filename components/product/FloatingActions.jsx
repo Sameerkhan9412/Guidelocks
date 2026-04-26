@@ -172,7 +172,7 @@ export default function FloatingActions({
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(product?.name || "Product");
     const text = encodeURIComponent(
-      `Check out ${product?.name || "this product"} - Premium Lock from GuideLock`
+      `Check out ${product?.name || "this product"} - Premium Lock from Vinayak International`
     );
     const image = encodeURIComponent(product?.images?.[0] || "");
 
@@ -203,7 +203,7 @@ export default function FloatingActions({
       try {
         await navigator.share({
           title: product?.name || "Product",
-          text: `Check out ${product?.name || "this product"} - Premium Lock from GuideLock`,
+          text: `Check out ${product?.name || "this product"} - Premium Lock from Vinayak International`,
           url: window.location.href,
         });
       } catch (err) {

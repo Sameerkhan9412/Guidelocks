@@ -56,7 +56,7 @@ export default function StorySection() {
             {/* Story Content */}
             <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
               <p>
-                As a leading manufacturer, Vinayak Export is committed to quality excellence, using advanced production technology and high-grade raw materials to ensure long-lasting performance. Our wide range of products includes designer door handles, mortise locks, and architectural hardware suitable for residential, commercial, and industrial applications.
+                As a leading manufacturer, Vinayak International is committed to quality excellence, using advanced production technology and high-grade raw materials to ensure long-lasting performance. Our wide range of products includes designer door handles, mortise locks, and architectural hardware suitable for residential, commercial, and industrial applications.
 
 
               </p>
@@ -64,7 +64,7 @@ export default function StorySection() {
                We focus on innovation, precision engineering, and strict quality control to meet international standards. Our products are highly demanded in domestic and global markets due to their superior finish, corrosion resistance, and robust construction.
               </p>
               <p>
-               At Vinayak Export, customer satisfaction is our top priority. We provide customized solutions, competitive pricing, and timely delivery, making us a reliable partner for distributors, wholesalers, and builders.
+               At Vinayak International, customer satisfaction is our top priority. We provide customized solutions, competitive pricing, and timely delivery, making us a reliable partner for distributors, wholesalers, and builders.
 
               </p>
             </div>

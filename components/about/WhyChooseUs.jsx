@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
           className="text-center mb-16"
         >
           <span className="inline-block bg-[#C9A227] text-[#111111] px-4 py-2 rounded-full text-sm font-bold mb-4">
-            Why GuideLock?
+            Why Vinayak International?
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Why <span className="text-[#C9A227]">50,000+</span> Customers Trust Us
@@ -131,7 +131,7 @@ export default function WhyChooseUs() {
           className="text-center"
         >
           <p className="text-gray-400 mb-6">
-            Ready to experience the GuideLock difference?
+            Ready to experience the Vinayak International difference?
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/categories">

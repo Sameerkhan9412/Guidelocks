@@ -36,7 +36,7 @@ export default function ProductInfo({ product, isWishlisted, onToggleWishlist })
 
   const handleShare = (platform) => {
     const url = window.location.href;
-    const text = `Check out ${product.name} - Premium Lock from GuideLock`;
+    const text = `Check out ${product.name} - Premium Lock from Vinayak International`;
 
     const shareUrls = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,

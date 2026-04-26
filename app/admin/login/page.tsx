@@ -122,7 +122,7 @@ export default function AdminLogin() {
 
         {/* Footer */}
         <p className="text-center text-xs text-zinc-500 mt-6">
-          Secure Admin Access • GuideLock CMS
+          Secure Admin Access • Vinayak International CMS
         </p>
 
       </div>

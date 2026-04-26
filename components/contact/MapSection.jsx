@@ -98,7 +98,7 @@ export default function MapSection() {
                   <div className="text-center">
                     <MapPin className="w-16 h-16 text-[#C9A227] mx-auto mb-4" />
                     <h4 className="text-lg font-bold text-[#111111] mb-2">
-                      GuideLock Showroom
+                      Vinayak International Showroom
                     </h4>
                     <p className="text-gray-600 mb-4">
                       D-114/115,sector-1, UPSIDC,Industrial Area , Talanagri,Ramghat Road 
@@ -132,7 +132,7 @@ export default function MapSection() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div>
                     <h4 className="text-white font-bold mb-1">
-                      GuideLock Head Office & Showroom
+                      Vinayak International Head Office & Showroom
                     </h4>
                     <p className="text-gray-400 text-sm">
                       D-114/115,sector-1, UPSIDC,Industrial Area , Talanagri,Ramghat Road 

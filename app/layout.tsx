@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://guidelock.com"), // change when deployed
 
   title: {
-    default: "GuideLock | Premium Door Locks & Security Solutions",
-    template: "%s | GuideLock",
+    default: "Vinayak International | Premium Door Locks & Security Solutions",
+    template: "%s | Vinayak International",
   },
 
   description:
-    "GuideLock provides premium quality door locks, smart locks, and security hardware. Trusted by customers for safety, durability, and modern design.",
+    "Vinayak International provides premium quality door locks, smart locks, and security hardware. Trusted by customers for safety, durability, and modern design.",
 
   keywords: [
     "door locks",
@@ -34,24 +34,24 @@ export const metadata: Metadata = {
     "home security",
     "Godrej locks",
     "Yale locks",
-    "GuideLock",
+    "Vinayak International",
   ],
 
-  authors: [{ name: "GuideLock" }],
-  creator: "GuideLock",
+  authors: [{ name: "Vinayak International" }],
+  creator: "Vinayak International",
 
   openGraph: {
-    title: "GuideLock | Security You Can Trust",
+    title: "Vinayak International | Security You Can Trust",
     description:
-      "Explore premium locks, smart locking systems, and modern security solutions with GuideLock.",
+      "Explore premium locks, smart locking systems, and modern security solutions with Vinayak International.",
     url: "https://guidelock.com",
-    siteName: "GuideLock",
+    siteName: "Vinayak International",
     images: [
       {
         url: "/assets/logo1.png", // put your OG banner later
         width: 1200,
         height: 630,
-        alt: "GuideLock Security Solutions",
+        alt: "Vinayak International Security Solutions",
       },
     ],
     locale: "en_IN",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "GuideLock | Premium Locks",
+    title: "Vinayak International | Premium Locks",
     description:
-      "Secure your home with GuideLock’s modern lock solutions.",
+      "Secure your home with Vinayak International’s modern lock solutions.",
     images: ["/assets/logo1.png"],
   },
 
