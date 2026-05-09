@@ -34,14 +34,14 @@ const heroSlides = [
       "Industry-leading mortise locks with superior craftsmanship and unmatched durability.",
     cta: "View Mortise Locks",
   },
-  {
-    id: 3,
-    title: "Digital Smart",
-    subtitle: "Locks",
-    description:
-      "Step into the future with our advanced digital locking systems and smart security.",
-    cta: "Discover Smart Locks",
-  },
+  // {
+  //   id: 3,
+  //   title: "Digital Smart",
+  //   subtitle: "Locks",
+  //   description:
+  //     "Step into the future with our advanced digital locking systems and smart security.",
+  //   cta: "Discover Smart Locks",
+  // },
   {
     id: 4,
     title: "Furniture",
@@ -50,14 +50,14 @@ const heroSlides = [
       "Elegant furniture locks that blend seamlessly with your interior design aesthetic.",
     cta: "Browse Furniture Locks",
   },
-  {
-    id: 5,
-    title: "Industrial",
-    subtitle: "Grade Security",
-    description:
-      "Heavy-duty locks built for commercial and industrial applications.",
-    cta: "Industrial Solutions",
-  },
+  // {
+  //   id: 5,
+  //   title: "Industrial",
+  //   subtitle: "Grade Security",
+  //   description:
+  //     "Heavy-duty locks built for commercial and industrial applications.",
+  //   cta: "Industrial Solutions",
+  // },
 ];
 
 const stats = [

@@ -12,7 +12,7 @@ const stats = [
   { icon: Calendar, value: "25+", label: "Years Experience" },
   { icon: Users, value: "50K+", label: "Happy Customers" },
   { icon: Building, value: "500+", label: "Dealers Nationwide" },
-  { icon: Award, value: "100+", label: "Quality Awards" },
+  // { icon: Award, value: "100+", label: "Quality Awards" },
 ];
 
 const highlights = [
@@ -178,7 +178,7 @@ export default function AboutUs() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-gray-800">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8 border-t border-gray-800">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
