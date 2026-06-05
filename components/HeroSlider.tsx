@@ -68,9 +68,9 @@ export default function HeroSlider() {
   }, [paused, next]);
 
   const variants = {
-    enter: (d) => ({ opacity: 0, scale: 1.06, x: d > 0 ? 40 : -40 }),
+    enter: (d:number) => ({ opacity: 0, scale: 1.06, x: d > 0 ? 40 : -40 }),
     center: { opacity: 1, scale: 1, x: 0 },
-    exit: (d) => ({ opacity: 0, scale: 0.96, x: d < 0 ? 40 : -40 }),
+    exit: (d:number) => ({ opacity: 0, scale: 0.96, x: d < 0 ? 40 : -40 }),
   };
 
   return (
