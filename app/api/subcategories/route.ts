@@ -2,6 +2,14 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import SubCategory from "@/models/SubCategory";
 
+function noStoreHeaders() {
+  return {
+    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
+    Pragma: "no-cache",
+    Expires: "0",
+  };
+}
+
 export async function GET() {
 
   await connectDB();
@@ -10,12 +18,16 @@ export async function GET() {
     .find()
     .populate("category");
 
-  return NextResponse.json({
-    success: true,
-    data: subcategories
-  });
+  return NextResponse.json(
+    {
+      success: true,
+      data: subcategories
+    },
+    { headers: noStoreHeaders() }
+  );
 
 }
+
 
 export async function POST(req: Request) {
 
@@ -35,10 +47,14 @@ export async function POST(req: Request) {
       category
     });
 
-    return NextResponse.json({
-      success: true,
-      data: subcategory
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: subcategory
+      },
+      { headers: noStoreHeaders() }
+    );
+
 
   } catch (error) {
 

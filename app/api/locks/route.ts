@@ -5,6 +5,14 @@ import { connectDB } from "@/lib/db";
 import Lock from "@/models/Lock";
 import cloudinary from "@/lib/cloudinary";
 
+function noStoreHeaders() {
+  return {
+    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
+    Pragma: "no-cache",
+    Expires: "0",
+  };
+}
+
 // GET LOCKS
 export async function GET() {
   try {
@@ -14,24 +22,32 @@ export async function GET() {
       .populate("category")
       .sort({ createdAt: -1 });
 
-    return NextResponse.json({
-      success: true,
-      data: locks,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: locks,
+      },
+      { headers: noStoreHeaders() }
+    );
   } catch (error) {
     console.log(error);
 
-    return NextResponse.json({
-      success: false,
-      message: "Failed to fetch locks",
-    });
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to fetch locks",
+      },
+      { headers: noStoreHeaders() }
+    );
   }
 }
+
 
 // CREATE LOCK
 export async function POST(req: Request) {
   try {
     await connectDB();
+
 
     const formData = await req.formData();
 
@@ -80,16 +96,24 @@ export async function POST(req: Request) {
       images: imageUrls,
     });
 
-    return NextResponse.json({
-      success: true,
-      data: lock,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: lock,
+      },
+      { headers: noStoreHeaders() }
+    );
+
   } catch (error) {
     console.log("LOCK CREATE ERROR:", error);
 
-    return NextResponse.json({
-      success: false,
-      message: "Failed to create lock",
-    });
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to create lock",
+      },
+      { headers: noStoreHeaders() }
+    );
+
   }
 }

@@ -6,8 +6,17 @@ import Lock from "@/models/Lock";
 import fs from "fs";
 import path from "path";
 
+function noStoreHeaders() {
+  return {
+    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
+    Pragma: "no-cache",
+    Expires: "0",
+  };
+}
+
 
 /* UPDATE LOCK */
+
 
 export async function PUT(
   req: Request,
@@ -97,24 +106,34 @@ export async function PUT(
     );
 
 
-    return NextResponse.json({
+    return NextResponse.json(
 
-      success:true,
-      data:updated
+      {
 
-    });
+        success:true,
+        data:updated
+
+      },
+      { headers: noStoreHeaders() }
+    );
+
 
 
   } catch(error){
 
     console.log("UPDATE LOCK ERROR:",error);
 
-    return NextResponse.json({
+    return NextResponse.json(
 
-      success:false,
-      message:"Failed to update lock"
+      {
 
-    });
+        success:false,
+        message:"Failed to update lock"
+
+      },
+      { headers: noStoreHeaders() }
+    );
+
 
   }
 
@@ -140,12 +159,17 @@ export async function DELETE(
 
     if(!lock){
 
-      return NextResponse.json({
+      return NextResponse.json(
 
-        success:false,
-        message:"Lock not found"
+        {
 
-      });
+          success:false,
+          message:"Lock not found"
+
+        },
+        { headers: noStoreHeaders() }
+      );
+
 
     }
 
@@ -174,24 +198,34 @@ export async function DELETE(
     await Lock.findByIdAndDelete(id);
 
 
-    return NextResponse.json({
+    return NextResponse.json(
 
-      success:true,
-      message:"Lock deleted"
+      {
 
-    });
+        success:true,
+        message:"Lock deleted"
+
+      },
+      { headers: noStoreHeaders() }
+    );
+
 
 
   } catch(error){
 
     console.log("DELETE LOCK ERROR:",error);
 
-    return NextResponse.json({
+    return NextResponse.json(
 
-      success:false,
-      message:"Failed to delete lock"
+      {
 
-    });
+        success:false,
+        message:"Failed to delete lock"
+
+      },
+      { headers: noStoreHeaders() }
+    );
+
 
   }
 

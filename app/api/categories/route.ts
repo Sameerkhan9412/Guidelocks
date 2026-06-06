@@ -5,16 +5,28 @@ import cloudinary from "@/lib/cloudinary";
 
 export const runtime = "nodejs";
 
+function noStoreHeaders() {
+  return {
+    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
+    Pragma: "no-cache",
+    Expires: "0",
+  };
+}
+
 export async function GET() {
   await connectDB();
 
   const categories = await Category.find().sort({ createdAt: -1 });
 
-  return NextResponse.json({
-    success: true,
-    data: categories,
-  });
+  return NextResponse.json(
+    {
+      success: true,
+      data: categories,
+    },
+    { headers: noStoreHeaders() }
+  );
 }
+
 
 export async function POST(req: Request) {
   try {
@@ -58,16 +70,24 @@ export async function POST(req: Request) {
       image: imageUrl,
     });
 
-    return NextResponse.json({
-      success: true,
-      data: category,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: category,
+      },
+      { headers: noStoreHeaders() }
+    );
+
   } catch (error) {
     console.error("CATEGORY ERROR:", error);
 
-    return NextResponse.json({
-      success: false,
-      message: "Failed to create category",
-    });
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to create category",
+      },
+      { headers: noStoreHeaders() }
+    );
+
   }
 }
